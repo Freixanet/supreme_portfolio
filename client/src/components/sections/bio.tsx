@@ -47,14 +47,14 @@ export default function Bio() {
             
             {/* Authority Testimonials */}
             <div className="space-y-6">
-              <div className="bg-minimal-black/30 backdrop-blur-md border-l-4 border-sky-blue pl-6 pr-4 py-4 rounded-r-lg">
+              <div className="border-l-4 border-sky-blue pl-6">
                 <blockquote className="font-mono text-lg italic text-minimal-white">
                   "This developer redefines what talent means in the digital age."
                 </blockquote>
                 <cite className="text-sm text-minimal-secondary">— Senior Technical Recruiter, Google</cite>
               </div>
               
-              <div className="bg-minimal-black/30 backdrop-blur-md border-l-4 border-minimal-secondary pl-6 pr-4 py-4 rounded-r-lg">
+              <div className="border-l-4 border-minimal-secondary pl-6">
                 <blockquote className="font-mono text-lg italic text-minimal-white">
                   "Philosophical depth meets technical excellence. Unprecedented."
                 </blockquote>

@@ -70,7 +70,7 @@ export default function Contact() {
                   placeholder="Your.Name.Here"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-minimal-black/30 backdrop-blur-md border border-minimal-gray-2 font-mono focus:border-sky-blue rounded-lg"
+                  className="bg-minimal-gray-1 border border-minimal-gray-2 font-mono focus:border-sky-blue rounded-lg"
                   data-testid="input-name"
                 />
               </div>
@@ -85,7 +85,7 @@ export default function Contact() {
                   placeholder="contact@company.dev"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-minimal-black/30 backdrop-blur-md border border-minimal-gray-2 font-mono focus:border-sky-blue rounded-lg"
+                  className="bg-minimal-gray-1 border border-minimal-gray-2 font-mono focus:border-sky-blue rounded-lg"
                   data-testid="input-email"
                 />
               </div>
@@ -95,7 +95,7 @@ export default function Contact() {
                   COLLABORATION.INTENT
                 </label>
                 <Select value={formData.intent} onValueChange={(value) => setFormData({ ...formData, intent: value })}>
-                  <SelectTrigger className="bg-minimal-black/30 backdrop-blur-md border border-minimal-gray-2 font-mono focus:border-sky-blue rounded-lg" data-testid="select-intent">
+                  <SelectTrigger className="bg-minimal-gray-1 border border-minimal-gray-2 font-mono focus:border-sky-blue rounded-lg" data-testid="select-intent">
                     <SelectValue placeholder="Select.Intent.Type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -117,13 +117,13 @@ export default function Contact() {
                   placeholder="Your message will be analyzed for cultural fit probability..."
                   value={formData.message}
                   onChange={(e) => handleMessageChange(e.target.value)}
-                  className="bg-minimal-black/30 backdrop-blur-md border border-minimal-gray-2 font-mono focus:border-sky-blue resize-none rounded-lg"
+                  className="bg-minimal-gray-1 border border-minimal-gray-2 font-mono focus:border-sky-blue resize-none rounded-lg"
                   data-testid="textarea-message"
                 />
               </div>
               
               {/* AI Suggestions */}
-              <div className="bg-minimal-black/40 backdrop-blur-md p-4 border-l-4 border-sky-blue rounded-lg">
+              <div className="bg-minimal-gray-2 p-4 border-l-4 border-sky-blue rounded-lg">
                 <h4 className="font-mono font-bold text-sm mb-2 text-sky-blue">
                   AI.SUGGESTION.ENGINE
                 </h4>
@@ -147,7 +147,7 @@ export default function Contact() {
             </form>
             
             {/* Reciprocity Element */}
-            <div className="border border-minimal-secondary p-6 bg-minimal-black/40 backdrop-blur-md rounded-lg">
+            <div className="border border-minimal-secondary p-6 bg-minimal-gray-2 rounded-lg">
               <h3 className="font-mono font-black text-lg mb-3 text-minimal-secondary">
                 FREE.CAREER.GUIDE
               </h3>
@@ -168,7 +168,7 @@ export default function Contact() {
           {/* Contact Info & Social Proof */}
           <div className="space-y-8">
             {/* Direct Contact */}
-            <div className="bg-minimal-black/40 backdrop-blur-md p-6 rounded-lg shadow-lg">
+            <div className="bg-minimal-gray-1 p-6 rounded-lg shadow-lg">
               <h3 className="font-mono font-black text-xl mb-6 text-sky-blue">
                 DIRECT.CHANNELS
               </h3>
@@ -189,7 +189,7 @@ export default function Contact() {
             </div>
             
             {/* Response Time */}
-            <div className="bg-minimal-black/40 backdrop-blur-md p-6 border-l-4 border-minimal-secondary rounded-lg">
+            <div className="bg-minimal-gray-2 p-6 border-l-4 border-minimal-secondary rounded-lg">
               <h4 className="font-mono font-bold text-lg mb-2 text-minimal-secondary">
                 RESPONSE.PROTOCOL
               </h4>
@@ -202,7 +202,7 @@ export default function Contact() {
             </div>
             
             {/* Availability Status */}
-            <div className="bg-minimal-black/40 backdrop-blur-md border border-sky-blue p-6 rounded-lg">
+            <div className="bg-minimal-gray-1 border border-sky-blue p-6 rounded-lg">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-3 h-3 bg-sky-blue rounded-full animate-pulse" />
                 <span className="font-mono font-bold text-sky-blue">

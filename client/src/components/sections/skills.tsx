@@ -56,7 +56,7 @@ export default function Skills() {
           {skillCategories.map((category, categoryIndex) => (
             <div 
               key={category.title}
-              className="bg-minimal-black/30 backdrop-blur-md border border-minimal-gray-2 rounded-lg p-6 shadow-lg hover:bg-minimal-black/40 transition-all duration-300"
+              className="bg-minimal-white/5 border border-minimal-gray-2 rounded-lg p-6 shadow-lg hover:bg-minimal-white/10 transition-all duration-300"
               data-testid={`skill-category-${categoryIndex}`}
             >
               <h3 className={`font-mono font-black text-xl mb-6 ${category.color}`}>
