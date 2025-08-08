@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <h1 className="font-mono font-black text-6xl md:text-8xl lg:text-9xl leading-none mb-8 animate-fade-in-up">
           <span className="block text-minimal-white">DIGITAL</span>
-          <span className="block text-sky-blue">REALITY</span>
+          <span className="block bg-gradient-to-r from-sky-blue via-blue-400 to-sky-blue bg-clip-text text-transparent">REALITY</span>
           <span className="block text-minimal-white">ARCHITECT</span>
         </h1>
         
