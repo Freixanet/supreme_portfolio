@@ -224,4 +224,28 @@
       opacity: 1;
     }
   }
+  
+  /* Performance optimizations for smoother scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  
+  /* Optimize animations for better performance */
+  .animate-orbital,
+  .animate-pulse-slow,
+  .animate-fade-in-up,
+  .animate-counter {
+    will-change: transform, opacity;
+  }
+  
+  /* Remove heavy transforms to improve scroll performance */
+  * {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 }

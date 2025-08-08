@@ -1,4 +1,4 @@
-import OrbitalAnimation from "@/components/ui/orbital-animation";
+
 
 const skillCategories = [
   {
@@ -44,10 +44,14 @@ export default function Skills() {
           Quantified proficiency through WebAssembly-powered calculations
         </p>
         
-        {/* 3D Skills Orbital Visualization */}
+        {/* Skills Introduction */}
         <div className="mb-16">
-          <div className="w-full h-96 mx-auto relative">
-            <OrbitalAnimation variant="skills" />
+          <div className="text-center">
+            <div className="inline-block bg-sky-blue/10 rounded-full px-8 py-4">
+              <span className="font-mono text-sky-blue font-bold text-lg">
+                NEURAL.COMPUTATION.ACTIVE
+              </span>
+            </div>
           </div>
         </div>
         

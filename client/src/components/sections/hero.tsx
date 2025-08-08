@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Counter from "@/components/ui/counter";
-import OrbitalAnimation from "@/components/ui/orbital-animation";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
@@ -13,10 +12,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-minimal-gray-1 via-minimal-gray-1 to-minimal-black">
-      {/* 3D Orbital Skills Background */}
-      <div className="absolute inset-0 z-0">
-        <OrbitalAnimation />
-      </div>
+
       
       {/* Elegant gradient overlay with subtle accent */}
       <div className="absolute inset-0 bg-gradient-to-t from-minimal-black/30 via-transparent to-minimal-gray-1/15" />
