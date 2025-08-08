@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 0%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 0%);
+  --primary: hsl(127, 100%, 50%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 100%);
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 45%);
+  --accent: hsl(0, 0%, 96%);
+  --accent-foreground: hsl(0, 0%, 9%);
+  --destructive: hsl(0, 100%, 63%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 89%);
+  --input: hsl(0, 0%, 89%);
+  --ring: hsl(127, 100%, 50%);
+  --chart-1: hsl(127, 100%, 50%);
+  --chart-2: hsl(0, 100%, 63%);
+  --chart-3: hsl(60, 100%, 50%);
+  --chart-4: hsl(240, 100%, 50%);
+  --chart-5: hsl(300, 100%, 50%);
+  
+  /* Brutalist colors */
+  --brutal-black: hsl(0, 0%, 0%);
+  --brutal-white: hsl(0, 0%, 100%);
+  --brutal-gray-1: hsl(0, 0%, 10%);
+  --brutal-gray-2: hsl(0, 0%, 16%);
+  --matrix-green: hsl(127, 100%, 63%);
+  --neon-red: hsl(345, 100%, 63%);
+  
+  /* Fonts */
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  
+  --radius: 0rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 10%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(127, 100%, 50%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 16%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(0, 0%, 60%);
+  --accent: hsl(0, 0%, 16%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 100%, 63%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 16%);
+  --input: hsl(0, 0%, 16%);
+  --ring: hsl(127, 100%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
+    color-scheme: dark;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .brutalist-shadow {
+    box-shadow: 8px 8px 0px var(--matrix-green);
+  }
+  
+  .brutalist-shadow-red {
+    box-shadow: 8px 8px 0px var(--neon-red);
+  }
+  
+  .brutalist-shadow-white {
+    box-shadow: 8px 8px 0px var(--brutal-white);
+  }
+  
+  .neurotransmitter-trigger {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .neurotransmitter-trigger:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .parallax-bg {
+      background-attachment: scroll;
+    }
+  }
+}
+
+@layer utilities {
+  .text-matrix-green {
+    color: var(--matrix-green);
+  }
+  
+  .text-neon-red {
+    color: var(--neon-red);
+  }
+  
+  .text-brutal-black {
+    color: var(--brutal-black);
+  }
+  
+  .text-brutal-white {
+    color: var(--brutal-white);
+  }
+  
+  .bg-matrix-green {
+    background-color: var(--matrix-green);
+  }
+  
+  .bg-neon-red {
+    background-color: var(--neon-red);
+  }
+  
+  .bg-brutal-black {
+    background-color: var(--brutal-black);
+  }
+  
+  .bg-brutal-white {
+    background-color: var(--brutal-white);
+  }
+  
+  .bg-brutal-gray-1 {
+    background-color: var(--brutal-gray-1);
+  }
+  
+  .bg-brutal-gray-2 {
+    background-color: var(--brutal-gray-2);
+  }
+  
+  .border-matrix-green {
+    border-color: var(--matrix-green);
+  }
+  
+  .border-neon-red {
+    border-color: var(--neon-red);
+  }
+  
+  .border-brutal-white {
+    border-color: var(--brutal-white);
+  }
+  
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  
+  .font-black {
+    font-weight: 900;
+  }
+  
+  .animate-orbital {
+    animation: orbital 20s linear infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-counter {
+    animation: counter 2s ease-out forwards;
+  }
+  
+  @keyframes orbital {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes counter {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
