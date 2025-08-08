@@ -12,19 +12,15 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden">
+    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-minimal-black via-minimal-black to-minimal-gray-1">
       {/* 3D Orbital Skills Background */}
       <div className="absolute inset-0 z-0">
         <OrbitalAnimation />
       </div>
       
-      {/* Parallax background layer */}
-      <div 
-        className="absolute inset-0 parallax-bg opacity-20" 
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
-        }}
-      />
+      {/* Elegant gradient overlay with subtle accent */}
+      <div className="absolute inset-0 bg-gradient-to-t from-minimal-black/40 via-transparent to-minimal-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-blue/5 via-transparent to-minimal-secondary/3" />
       
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="font-mono font-black text-6xl md:text-8xl lg:text-9xl leading-none mb-8 animate-fade-in-up">
