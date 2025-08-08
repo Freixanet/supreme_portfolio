@@ -5,66 +5,66 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(0, 0%, 0%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(0, 0%, 0%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(0, 0%, 0%);
-  --primary: hsl(127, 100%, 50%);
-  --primary-foreground: hsl(0, 0%, 0%);
-  --secondary: hsl(0, 0%, 100%);
-  --secondary-foreground: hsl(0, 0%, 0%);
-  --muted: hsl(0, 0%, 96%);
-  --muted-foreground: hsl(0, 0%, 45%);
-  --accent: hsl(0, 0%, 96%);
-  --accent-foreground: hsl(0, 0%, 9%);
-  --destructive: hsl(0, 100%, 63%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(0, 0%, 89%);
-  --input: hsl(0, 0%, 89%);
-  --ring: hsl(127, 100%, 50%);
-  --chart-1: hsl(127, 100%, 50%);
-  --chart-2: hsl(0, 100%, 63%);
-  --chart-3: hsl(60, 100%, 50%);
-  --chart-4: hsl(240, 100%, 50%);
-  --chart-5: hsl(300, 100%, 50%);
+  --background: #0B0B0B;
+  --foreground: #FAFAFA;
+  --card: #0B0B0B;
+  --card-foreground: #FAFAFA;
+  --popover: #0B0B0B;
+  --popover-foreground: #FAFAFA;
+  --primary: #0EA5E9;
+  --primary-foreground: #0B0B0B;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FAFAFA;
+  --muted: #1A1A1A;
+  --muted-foreground: #A1A1AA;
+  --accent: #1A1A1A;
+  --accent-foreground: #FAFAFA;
+  --destructive: #EF4444;
+  --destructive-foreground: #FAFAFA;
+  --border: #2A2A2A;
+  --input: #1A1A1A;
+  --ring: #0EA5E9;
+  --chart-1: #0EA5E9;
+  --chart-2: #EF4444;
+  --chart-3: #F59E0B;
+  --chart-4: #8B5CF6;
+  --chart-5: #EC4899;
   
-  /* Brutalist colors */
-  --brutal-black: hsl(0, 0%, 0%);
-  --brutal-white: hsl(0, 0%, 100%);
-  --brutal-gray-1: hsl(0, 0%, 10%);
-  --brutal-gray-2: hsl(0, 0%, 16%);
-  --matrix-green: hsl(127, 100%, 63%);
-  --neon-red: hsl(345, 100%, 63%);
+  /* Minimal luxury colors */
+  --minimal-black: #0B0B0B;
+  --minimal-white: #FAFAFA;
+  --minimal-gray-1: #1A1A1A;
+  --minimal-gray-2: #2A2A2A;
+  --minimal-secondary: #A1A1AA;
+  --sky-blue: #0EA5E9;
   
   /* Fonts */
   --font-mono: 'JetBrains Mono', monospace;
   --font-sans: 'Inter', sans-serif;
   
-  --radius: 0rem;
+  --radius: 8px;
 }
 
 .dark {
-  --background: hsl(0, 0%, 0%);
-  --foreground: hsl(0, 0%, 100%);
-  --card: hsl(0, 0%, 10%);
-  --card-foreground: hsl(0, 0%, 100%);
-  --popover: hsl(0, 0%, 0%);
-  --popover-foreground: hsl(0, 0%, 100%);
-  --primary: hsl(127, 100%, 50%);
-  --primary-foreground: hsl(0, 0%, 0%);
-  --secondary: hsl(0, 0%, 16%);
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --muted: hsl(0, 0%, 10%);
-  --muted-foreground: hsl(0, 0%, 60%);
-  --accent: hsl(0, 0%, 16%);
-  --accent-foreground: hsl(0, 0%, 100%);
-  --destructive: hsl(0, 100%, 63%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(0, 0%, 16%);
-  --input: hsl(0, 0%, 16%);
-  --ring: hsl(127, 100%, 50%);
+  --background: #0B0B0B;
+  --foreground: #FAFAFA;
+  --card: #0B0B0B;
+  --card-foreground: #FAFAFA;
+  --popover: #0B0B0B;
+  --popover-foreground: #FAFAFA;
+  --primary: #0EA5E9;
+  --primary-foreground: #0B0B0B;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FAFAFA;
+  --muted: #1A1A1A;
+  --muted-foreground: #A1A1AA;
+  --accent: #1A1A1A;
+  --accent-foreground: #FAFAFA;
+  --destructive: #EF4444;
+  --destructive-foreground: #FAFAFA;
+  --border: #2A2A2A;
+  --input: #1A1A1A;
+  --ring: #0EA5E9;
 }
 
 @layer base {
@@ -84,15 +84,15 @@
 
 @layer components {
   .brutalist-shadow {
-    box-shadow: 8px 8px 0px var(--matrix-green);
+    box-shadow: 8px 8px 0px var(--sky-blue);
   }
   
   .brutalist-shadow-red {
-    box-shadow: 8px 8px 0px var(--neon-red);
+    box-shadow: 8px 8px 0px var(--minimal-secondary);
   }
   
   .brutalist-shadow-white {
-    box-shadow: 8px 8px 0px var(--brutal-white);
+    box-shadow: 8px 8px 0px var(--minimal-white);
   }
   
   .neurotransmitter-trigger {
@@ -118,56 +118,56 @@
 }
 
 @layer utilities {
-  .text-matrix-green {
-    color: var(--matrix-green);
+  .text-sky-blue {
+    color: var(--sky-blue);
   }
   
-  .text-neon-red {
-    color: var(--neon-red);
+  .text-minimal-secondary {
+    color: var(--minimal-secondary);
   }
   
-  .text-brutal-black {
-    color: var(--brutal-black);
+  .text-minimal-black {
+    color: var(--minimal-black);
   }
   
-  .text-brutal-white {
-    color: var(--brutal-white);
+  .text-minimal-white {
+    color: var(--minimal-white);
   }
   
-  .bg-matrix-green {
-    background-color: var(--matrix-green);
+  .bg-sky-blue {
+    background-color: var(--sky-blue);
   }
   
-  .bg-neon-red {
-    background-color: var(--neon-red);
+  .bg-minimal-secondary {
+    background-color: var(--minimal-secondary);
   }
   
-  .bg-brutal-black {
-    background-color: var(--brutal-black);
+  .bg-minimal-black {
+    background-color: var(--minimal-black);
   }
   
-  .bg-brutal-white {
-    background-color: var(--brutal-white);
+  .bg-minimal-white {
+    background-color: var(--minimal-white);
   }
   
-  .bg-brutal-gray-1 {
-    background-color: var(--brutal-gray-1);
+  .bg-minimal-gray-1 {
+    background-color: var(--minimal-gray-1);
   }
   
-  .bg-brutal-gray-2 {
-    background-color: var(--brutal-gray-2);
+  .bg-minimal-gray-2 {
+    background-color: var(--minimal-gray-2);
   }
   
-  .border-matrix-green {
-    border-color: var(--matrix-green);
+  .border-sky-blue {
+    border-color: var(--sky-blue);
   }
   
-  .border-neon-red {
-    border-color: var(--neon-red);
+  .border-minimal-secondary {
+    border-color: var(--minimal-secondary);
   }
   
-  .border-brutal-white {
-    border-color: var(--brutal-white);
+  .border-minimal-white {
+    border-color: var(--minimal-white);
   }
   
   .font-mono {
