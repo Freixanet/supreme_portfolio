@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <h3 className="font-mono font-black text-xl mb-4 text-matrix-green">
-              PORTFOLIO.SUPREMO
+              FREIXANET.PORTFOLIO
             </h3>
             <p className="text-sm opacity-80 mb-4">
               Digital reality architect specializing in brutalist web experiences 
@@ -53,7 +53,7 @@ export default function Footer() {
           <div>
             <h4 className="font-mono font-bold mb-4">LEGAL.COMPLIANCE</h4>
             <div className="space-y-2 text-xs opacity-70">
-              <p>© 2024 Portfolio Supremo. All rights reserved.</p>
+              <p>© 2024 Freixanet Portfolio. All rights reserved.</p>
               <p className="text-neon-red font-mono">
                 ⚠ Blockchain features require SEC/KYC compliance
               </p>
