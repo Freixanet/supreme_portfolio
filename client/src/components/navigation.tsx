@@ -22,7 +22,7 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-minimal-black/90 backdrop-blur-md border-b border-minimal-gray-2">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="font-mono font-black text-xl tracking-wider">
             <span className="text-sky-blue">&gt;</span> FREIXANET.PORTFOLIO
