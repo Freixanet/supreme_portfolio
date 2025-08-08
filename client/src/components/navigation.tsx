@@ -26,9 +26,9 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="text-xl tracking-wider">
             <span className="text-sky-blue">&gt;</span> 
-            <span className="italic font-medium text-minimal-white" style={{ fontFamily: 'Playfair Display, serif' }}>Freixanet</span>
+            <span className="font-mono font-black italic text-minimal-white">FREIXANET</span>
             <span className="text-sky-blue">.</span>
-            <span className="font-mono font-black text-minimal-white">PORTFOLIO</span>
+            <span className="font-mono font-black italic text-minimal-white">PORTFOLIO</span>
           </div>
           
           <div className="hidden md:flex space-x-8 font-mono font-bold">
