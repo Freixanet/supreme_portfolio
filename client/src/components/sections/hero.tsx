@@ -40,7 +40,7 @@ export default function Hero() {
         
         {/* Social Proof Counters */}
         <div className="grid grid-cols-3 gap-8 mb-12 max-w-md mx-auto">
-          <div className="text-center animate-counter">
+          <div className="text-center animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-4 py-3">
             <Counter 
               target={15247} 
               className="font-mono font-black text-3xl text-sky-blue" 
@@ -48,7 +48,7 @@ export default function Hero() {
             />
             <div className="text-sm text-minimal-secondary">GitHub Stars</div>
           </div>
-          <div className="text-center animate-counter" style={{ animationDelay: "0.2s" }}>
+          <div className="text-center animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-4 py-3" style={{ animationDelay: "0.2s" }}>
             <Counter 
               target={89342} 
               className="font-mono font-black text-3xl text-sky-blue"
@@ -56,7 +56,7 @@ export default function Hero() {
             />
             <div className="text-sm text-minimal-secondary">Profile Views</div>
           </div>
-          <div className="text-center animate-counter" style={{ animationDelay: "0.4s" }}>
+          <div className="text-center animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-4 py-3" style={{ animationDelay: "0.4s" }}>
             <Counter 
               target={127} 
               className="font-mono font-black text-3xl text-sky-blue"

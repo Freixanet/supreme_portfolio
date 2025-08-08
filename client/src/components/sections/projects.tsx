@@ -74,7 +74,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div 
               key={project.title}
-              className={`group ${project.shadowClass} bg-minimal-gray-2 border border-minimal-gray-1 rounded-lg neurotransmitter-trigger hover:border-sky-blue transition-all duration-300`}
+              className={`group ${project.shadowClass} bg-minimal-black/30 backdrop-blur-md border border-minimal-gray-1 rounded-lg neurotransmitter-trigger hover:border-sky-blue transition-all duration-300`}
               data-testid={`project-card-${index}`}
             >
               <img 
