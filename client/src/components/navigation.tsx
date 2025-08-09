@@ -89,7 +89,7 @@ export default function Navigation() {
             <div className="text-xl tracking-wider">
               <span className="text-sky-blue">&gt;</span>
               <a
-                href="/"
+                href="#hero"
                 className="inline-flex items-center gap-2 ml-2"
                 aria-label="Go to home"
               >
