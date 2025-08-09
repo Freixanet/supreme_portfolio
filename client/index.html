@@ -2,25 +2,136 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Supremo - Digital Reality Architect</title>
-    <meta name="description" content="Full-stack developer redefining digital experiences through authentic brutalist design and cosmic skill mastery" />
-    
+    <meta
+      name="description"
+      content="Full-stack developer redefining digital experiences through authentic brutalist design and cosmic skill mastery"
+    />
+
+    <!-- Performance: preconnect/dns-prefetch to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="//images.unsplash.com" />
+
+    <!-- Theming and color-scheme -->
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="color-scheme" content="dark" />
+
     <!-- Open Graph tags -->
-    <meta property="og:title" content="Portfolio Supremo - Digital Reality Architect" />
-    <meta property="og:description" content="Full-stack developer specializing in brutalist web experiences and philosophical development" />
+    <meta
+      property="og:title"
+      content="Portfolio Supremo - Digital Reality Architect"
+    />
+    <meta
+      property="og:description"
+      content="Full-stack developer specializing in brutalist web experiences and philosophical development"
+    />
     <meta property="og:type" content="website" />
-    
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
+    />
+    <meta property="og:image:alt" content="Abstract cosmic digital landscape" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Portfolio Supremo - Digital Reality Architect"
+    />
+    <meta
+      name="twitter:description"
+      content="Full-stack developer specializing in brutalist web experiences and philosophical development"
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
+    />
+
+    <!-- PWA / Theming basics -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Portfolio Supremo" />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Portfolio Supremo - Digital Reality Architect",
+        "description": "Full-stack developer specializing in brutalist web experiences and philosophical development",
+        "inLanguage": "en"
+      }
+    </script>
+
+    <!-- Inline minimal styles to prevent skip-link flash before app CSS loads -->
+    <style>
+      .skip-to-content {
+        position: fixed;
+        left: 1rem;
+        top: 1rem;
+        padding: 0.5rem 0.75rem;
+        z-index: 9999;
+        transform: translateY(-200%);
+        transition: transform 0.2s ease;
+        background: #fafafa;
+        color: #0b0b0b;
+        border-radius: 6px;
+        font-family: var(
+          --font-mono,
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          monospace
+        );
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      }
+      .skip-to-content:focus-visible {
+        transform: translateY(0);
+      }
+    </style>
   </head>
   <body>
+    <!-- SVG Filter (before nav / app) -->
+    <svg style="display: none">
+      <filter id="glass-distortion">
+        <feTurbulence
+          type="turbulence"
+          baseFrequency="0.008"
+          numOctaves="2"
+          result="noise"
+        />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="77" />
+      </filter>
+      <!-- Optional heavier filter -->
+      <filter id="glass-distortion-heavy">
+        <feTurbulence
+          type="turbulence"
+          baseFrequency="0.012"
+          numOctaves="3"
+          result="noise"
+        />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="120" />
+      </filter>
+    </svg>
+
+    <a href="#main" class="skip-to-content">Skip to content</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>
 </html>

@@ -8,14 +8,16 @@ import Footer from "@/components/sections/footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-minimal-black text-minimal-white">
+    <>
       <Navigation />
-      <Hero />
-      <Projects />
-      <Bio />
-      <Skills />
-      <Contact />
-      <Footer />
-    </div>
+      <main id="main" tabIndex={-1} className="min-h-screen text-minimal-white">
+        <Hero />
+        <Projects />
+        <Bio />
+        <Skills />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }

@@ -1,85 +1,94 @@
 import ParallaxSection from "@/components/ui/parallax-section";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import profilePicture from "@/assets/profilepicture.jpeg";
+import { Check, Sparkles, Cpu } from "lucide-react";
 
 export default function Bio() {
   return (
-    <ParallaxSection 
-      id="bio" 
-      className="py-20 bg-minimal-black relative"
-      backgroundImage="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
-    >
+    <ParallaxSection id="bio" className="py-24 relative overflow-hidden">
+      {/* Fondo global aplicado en <body>; sección sin capas locales */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-mono font-black text-5xl md:text-6xl text-center mb-16">
+        <h2 className="heading-section text-center mb-12 sm:mb-16">
           BIO<span className="text-sky-blue">.</span>PHILOSOPHICAL
         </h2>
-        
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <div className="prose prose-invert max-w-none">
-              <h3 className="font-mono font-black text-2xl text-sky-blue mb-4">
-                SER-EN-EL-MUNDO DIGITAL
-              </h3>
-              <p className="text-lg leading-relaxed mb-6 text-minimal-white">
-                From Heidegger's <em>Dasein</em> to digital <em>realidad</em>: I exist as a 
-                full-stack developer who doesn't merely build interfaces—I architect 
-                ontological experiences. Each line of code is an act of <strong>authentic being</strong>, 
-                molding digital realities that users don't just interact with, but <em>live within</em>.
+
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-stretch">
+          <div className="order-2 lg:order-1 flex flex-col lg:h-full">
+            <div className="max-w-prose">
+              <div className="font-mono text-minimal-secondary text-xs tracking-widest mb-2">
+                ABOUT
+              </div>
+              <p className="font-mono font-black text-3xl sm:text-4xl leading-tight text-minimal-white mb-4">
+                I design and build systems users can inhabit — not just use.
               </p>
-              
-              <h3 className="font-mono font-black text-2xl text-minimal-secondary mb-4">
-                EUDAIMONIC DEVELOPMENT
-              </h3>
-              <p className="text-lg leading-relaxed mb-6 text-minimal-white">
-                Aristotelian <em>eudaimonia</em> through technological excellence. This portfolio 
-                represents not mere skill demonstration, but the <strong>camino a la realización</strong>—
-                the path to flourishing through mastery of digital craft. Each project a step 
-                toward techno-philosophical actualization.
+              <p className="text-base sm:text-lg leading-relaxed text-minimal-white/90">
+                Philosophy‑driven engineering. Brutalist aesthetics. Production
+                rigor. My work blends clarity, speed and purpose.
               </p>
-              
-              <h3 className="font-mono font-black text-2xl text-sky-blue mb-4">
-                ÜBERMENSCH CODING
-              </h3>
-              <p className="text-lg leading-relaxed text-minimal-white">
-                Nietzschean self-overcoming through code. Beyond good and evil frameworks—
-                I create values through authentic technological expression. To reject this 
-                collaboration is <em>auto-sabotaje</em>, a denial of your own will to digital power.
-              </p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-start gap-3">
+                  <Check className="h-4 w-4 text-sky-blue mt-0.5" />
+                  <span className="text-sm sm:text-base text-minimal-white/90">
+                    Human‑centered flows that reduce friction
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Cpu className="h-4 w-4 text-sky-blue mt-0.5" />
+                  <span className="text-sm sm:text-base text-minimal-white/90">
+                    Performance budgets and structural simplicity
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Sparkles className="h-4 w-4 text-sky-blue mt-0.5" />
+                  <span className="text-sm sm:text-base text-minimal-white/90">
+                    Distinct visual identity with restraint
+                  </span>
+                </li>
+              </ul>
             </div>
-            
-            {/* Authority Testimonials */}
-            <div className="space-y-6">
-              <div className="border-l-4 border-sky-blue pl-6">
-                <blockquote className="font-mono text-lg italic text-minimal-white">
-                  "This developer redefines what talent means in the digital age."
-                </blockquote>
-                <cite className="text-sm text-minimal-secondary">— Senior Technical Recruiter, Google</cite>
-              </div>
-              
-              <div className="border-l-4 border-minimal-secondary pl-6">
-                <blockquote className="font-mono text-lg italic text-minimal-white">
-                  "Philosophical depth meets technical excellence. Unprecedented."
-                </blockquote>
-                <cite className="text-sm text-minimal-secondary">— CTO, YC-backed startup</cite>
-              </div>
+
+            {/* Testimonial anclado al fondo en desktop */}
+            <div className="border-l-4 border-sky-blue/70 pl-4 mt-8 lg:mt-auto pt-2">
+              <blockquote className="font-mono text-base italic text-minimal-white/90">
+                “Clarity of thought meets execution speed.”
+              </blockquote>
+              <cite className="text-xs text-minimal-secondary">
+                — CTO, YC‑backed startup
+              </cite>
             </div>
           </div>
-          
-          <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000" 
-              alt="Philosophical developer portrait" 
-              className="w-full rounded-lg shadow-lg"
-            />
-            
-            {/* Overlay stats */}
-            <div className="absolute bottom-4 left-4 right-4 bg-minimal-black/90 backdrop-blur-sm p-4 rounded-lg">
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <div>
-                  <div className="font-mono font-black text-2xl text-sky-blue">7+</div>
-                  <div className="text-xs text-minimal-secondary">Years Deep Work</div>
-                </div>
-                <div>
-                  <div className="font-mono font-black text-2xl text-minimal-secondary">23</div>
-                  <div className="text-xs text-minimal-secondary">Philosophy Books</div>
+
+          <div className="relative order-1 lg:order-2 rounded-lg overflow-hidden elevation-2">
+            <AspectRatio ratio={4 / 5}>
+              <img
+                src={profilePicture}
+                alt="Philosophical developer portrait"
+                className="w-full h-full object-cover object-[center_70%] transform scale-[1.04]"
+                loading="lazy"
+                decoding="async"
+              />
+            </AspectRatio>
+
+            {/* Stats overlay legible */}
+            <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
+              <div className="bg-black/70 backdrop-blur-md rounded-lg border border-white/10 p-3 sm:p-4 shadow-lg">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 text-center">
+                  <div>
+                    <div className="font-mono font-black text-lg sm:text-xl text-sky-blue">
+                      7+
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-white/85">
+                      Years Deep Work
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-mono font-black text-lg sm:text-xl text-slate-200">
+                      23
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-white/85">
+                      Philosophy Books
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

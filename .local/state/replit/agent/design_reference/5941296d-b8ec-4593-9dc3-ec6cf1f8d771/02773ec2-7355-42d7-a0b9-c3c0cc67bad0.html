@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Supremo - Digital Reality Architect</title>
+    <meta name="description" content="Full-stack developer redefining digital experiences through authentic brutalist design and cosmic skill mastery">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js for 3D animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Font imports -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Heroicons for icons -->
+    <script src="https://unpkg.com/@heroicons/react@2.0.18/24/outline/index.js" type="module"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'matrix-green': '#00FF41',
+                        'neon-red': '#FF0040',
+                        'brutal-black': '#000000',
+                        'brutal-white': '#FFFFFF',
+                        'brutal-gray-1': '#1a1a1a',
+                        'brutal-gray-2': '#2a2a2a'
+                    },
+                    animation: {
+                        'orbital': 'orbital 20s linear infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'counter': 'counter 2s ease-out forwards'
+                    },
+                    keyframes: {
+                        orbital: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        counter: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            html:not(.light) {
+                color-scheme: dark;
+            }
+        }
+        
+        .brutalist-shadow {
+            box-shadow: 8px 8px 0px #00FF41;
+        }
+        
+        .brutalist-shadow-red {
+            box-shadow: 8px 8px 0px #FF0040;
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .orbital-container {
+            perspective: 1000px;
+        }
+        
+        .skill-orbit {
+            transform-style: preserve-3d;
+        }
+        
+        .neurotransmitter-trigger:hover {
+            transform: translateY(-2px) scale(1.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hypnotic-scroll {
+            will-change: transform;
+        }
+    </style>
+</head>
+
+<body class="bg-brutal-black text-brutal-white font-sans overflow-x-hidden">
+    <!-- @COMPONENT: NavigationHeader -->
+    <nav class="fixed top-0 w-full z-50 bg-brutal-black/90 backdrop-blur-md border-b-2 border-matrix-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-mono font-black text-xl tracking-wider">
+                    <span class="text-matrix-green">&gt;</span> PORTFOLIO.SUPREMO
+                </div>
+                <div class="hidden md:flex space-x-8 font-mono font-bold">
+                    <a href="#hero" class="hover:text-matrix-green transition-colors duration-300">HOME</a>
+                    <a href="#projects" class="hover:text-matrix-green transition-colors duration-300">PROJECTS</a>
+                    <a href="#bio" class="hover:text-matrix-green transition-colors duration-300">BIO</a>
+                    <a href="#skills" class="hover:text-matrix-green transition-colors duration-300">SKILLS</a>
+                    <a href="#contact" class="hover:text-matrix-green transition-colors duration-300">CONTACT</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-brutal-white hover:text-matrix-green">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: NavigationHeader -->
+
+    <!-- @COMPONENT: HeroSection -->
+    <section id="hero" class="min-h-screen relative flex items-center justify-center overflow-hidden">
+        <!-- 3D Orbital Skills Background -->
+        <div id="orbital-canvas" class="absolute inset-0 z-0"></div>
+        
+        <!-- Parallax background layer -->
+        <!-- Abstract 3D orbital system visualization with geometric patterns -->
+        <div class="absolute inset-0 parallax-bg opacity-20" style="background-image: url('https://pixabay.com/get/ga8cbab17b48535eaf91a4c4a63ed4aee4eb6b32ad59f87e42255362c34533328a8ffd3df704316f678df5e4ec3e3b8c5409ae83c42d6535c07c86a9db277f223_1280.jpg')"></div>
+        
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="font-mono font-black text-6xl md:text-8xl lg:text-9xl leading-none mb-8 animate-fade-in-up">
+                <span class="block text-brutal-white">DIGITAL</span>
+                <span class="block text-matrix-green">REALITY</span>
+                <span class="block text-brutal-white">ARCHITECT</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-12 leading-relaxed opacity-90">
+                Full-stack developer who <strong>moldea realidades digitales</strong> through authentic brutalist design 
+                and cosmic skill mastery. From primeros principios to production deployment.
+            </p>
+            
+            <!-- Social Proof Counters -->
+            <div class="grid grid-cols-3 gap-8 mb-12 max-w-md mx-auto">
+                <div class="text-center animate-counter">
+                    <div class="font-mono font-black text-3xl text-matrix-green" data-count="15247">0</div>
+                    <div class="text-sm opacity-70">GitHub Stars</div>
+                </div>
+                <div class="text-center animate-counter" style="animation-delay: 0.2s;">
+                    <div class="font-mono font-black text-3xl text-matrix-green" data-count="89342">0</div>
+                    <div class="text-sm opacity-70">Profile Views</div>
+                </div>
+                <div class="text-center animate-counter" style="animation-delay: 0.4s;">
+                    <div class="font-mono font-black text-3xl text-matrix-green" data-count="127">0</div>
+                    <div class="text-sm opacity-70">Projects</div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <button class="brutalist-shadow bg-matrix-green text-brutal-black font-mono font-black px-8 py-4 text-lg hover:bg-brutal-white transition-colors duration-300 neurotransmitter-trigger">
+                    HIRE ME NOW
+                </button>
+                <button class="border-2 border-brutal-white font-mono font-bold px-8 py-4 text-lg hover:bg-brutal-white hover:text-brutal-black transition-all duration-300">
+                    VIEW PROJECTS
+                </button>
+            </div>
+            
+            <!-- Scarcity Indicator -->
+            <div class="mt-8 text-neon-red font-mono text-sm animate-pulse-slow">
+                ⚠ LIMITED COLLABORATION SLOTS AVAILABLE ⚠
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-matrix-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: ProjectsSection -->
+    <section id="projects" class="py-20 bg-brutal-gray-1 relative">
+        <!-- Parallax background -->
+        <!-- Modern developer workspace with multiple monitors showing code interfaces -->
+        <div class="absolute inset-0 parallax-bg opacity-10" style="background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-mono font-black text-5xl md:text-6xl text-center mb-4">
+                PROJECTS<span class="text-matrix-green">.</span>
+            </h2>
+            <p class="text-center text-xl opacity-80 mb-16 max-w-3xl mx-auto">
+                Viajes heroicos through digital landscapes. Each project a peak experience 
+                in human-computer symbiosis.
+            </p>
+            
+            <!-- Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                
+                <!-- Project 1: Blockchain Verification System -->
+                <div class="group brutalist-shadow bg-brutal-black border-2 border-brutal-white neurotransmitter-trigger hypnotic-scroll" data-mock="true">
+                    <!-- Modern blockchain interface with holographic displays -->
+                    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Blockchain verification dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-mono font-black text-xl mb-3 text-matrix-green">BLOCKCHAIN_VERIFY.SOL</h3>
+                        <p class="text-sm opacity-90 mb-4" data-mock="true">
+                            Ethereum-based achievement verification system. Smart contracts + React frontend. 
+                            <span class="text-neon-red font-mono text-xs">LEGAL COMPLIANCE VERIFIED</span>
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-mono text-xs text-matrix-green">Next.js • Solidity • Web3</span>
+                            <button class="text-brutal-white hover:text-matrix-green">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: AI Culture Fit Predictor -->
+                <div class="group brutalist-shadow-red bg-brutal-black border-2 border-brutal-white neurotransmitter-trigger hypnotic-scroll" data-mock="true">
+                    <!-- AI neural network visualization with data flows -->
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="AI neural network interface" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-mono font-black text-xl mb-3 text-neon-red">NEURAL_FIT.AI</h3>
+                        <p class="text-sm opacity-90 mb-4" data-mock="true">
+                            WebAssembly-powered neural network predicts cultural fit based on viewer inputs. 
+                            99.7% accuracy in beta testing.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-mono text-xs text-neon-red">Rust • WASM • TensorFlow.js</span>
+                            <button class="text-brutal-white hover:text-neon-red">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: PWA Offline-First App -->
+                <div class="group brutalist-shadow bg-brutal-black border-2 border-brutal-white neurotransmitter-trigger hypnotic-scroll" data-mock="true">
+                    <!-- Progressive web app interface showing offline capabilities -->
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Progressive web app dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-mono font-black text-xl mb-3 text-matrix-green">PWA_OFFLINE.APP</h3>
+                        <p class="text-sm opacity-90 mb-4" data-mock="true">
+                            Service worker architecture with IndexedDB sync. Works in airplane mode. 
+                            Featured in Google's PWA showcase.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-mono text-xs text-matrix-green">Service Workers • IndexedDB</span>
+                            <button class="text-brutal-white hover:text-matrix-green">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Three.js Immersive Experience -->
+                <div class="group brutalist-shadow-red bg-brutal-black border-2 border-brutal-white neurotransmitter-trigger hypnotic-scroll" data-mock="true">
+                    <!-- 3D immersive web experience with particle systems -->
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="3D web experience visualization" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-mono font-black text-xl mb-3 text-neon-red">IMMERSIVE_3D.WEB</h3>
+                        <p class="text-sm opacity-90 mb-4" data-mock="true">
+                            WebGL particle systems with physics simulation. 120fps on mobile. 
+                            Won Awwwards Site of the Day.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-mono text-xs text-neon-red">Three.js • GLSL • Physics</span>
+                            <button class="text-brutal-white hover:text-neon-red">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Real-time Collaboration Platform -->
+                <div class="group brutalist-shadow bg-brutal-black border-2 border-brutal-white neurotransmitter-trigger hypnotic-scroll" data-mock="true">
+                    <!-- Real-time collaboration interface with multiple users -->
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Real-time collaboration platform" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-mono font-black text-xl mb-3 text-matrix-green">REALTIME_COLLAB.IO</h3>
+                        <p class="text-sm opacity-90 mb-4" data-mock="true">
+                            WebRTC + Socket.io architecture. Sub-100ms latency globally. 
+                            Scales to 10k concurrent users.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-mono text-xs text-matrix-green">WebRTC • Socket.io • Redis</span>
+                            <button class="text-brutal-white hover:text-matrix-green">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6: Edge Computing Platform -->
+                <div class="group brutalist-shadow-red bg-brutal-black border-2 border-brutal-white neurotransmitter-trigger hypnotic-scroll" data-mock="true">
+                    <!-- Edge computing network visualization -->
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Edge computing network interface" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-mono font-black text-xl mb-3 text-neon-red">EDGE_COMPUTE.NET</h3>
+                        <p class="text-sm opacity-90 mb-4" data-mock="true">
+                            Cloudflare Workers + D1 database. 50ms global response times. 
+                            Deployed across 300+ edge locations.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-mono text-xs text-neon-red">Workers • D1 • Wrangler</span>
+                            <button class="text-brutal-white hover:text-neon-red">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- @COMPONENT: PhilosophicalBio -->
+    <section id="bio" class="py-20 bg-brutal-black relative">
+        <!-- Abstract geometric patterns representing philosophical concepts -->
+        <div class="absolute inset-0 parallax-bg opacity-5" style="background-image: url('https://pixabay.com/get/ga111fea2e430612e51867f991a2ca9aedce2e5cd76478b9761ea1fea8c094092daeebc6099a08113a5abb74eccb88f03f07ea992f014c446388d1e6dbed42a1f_1280.jpg')"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-mono font-black text-5xl md:text-6xl text-center mb-4">
+                BIO<span class="text-matrix-green">.</span>PHILOSOPHICAL
+            </h2>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="prose prose-invert max-w-none">
+                        <h3 class="font-mono font-black text-2xl text-matrix-green mb-4">
+                            SER-EN-EL-MUNDO DIGITAL
+                        </h3>
+                        <p class="text-lg leading-relaxed mb-6" data-mock="true">
+                            From Heidegger's <em>Dasein</em> to digital <em>realidad</em>: I exist as a 
+                            full-stack developer who doesn't merely build interfaces—I architect 
+                            ontological experiences. Each line of code is an act of <strong>authentic being</strong>, 
+                            molding digital realities that users don't just interact with, but <em>live within</em>.
+                        </p>
+                        
+                        <h3 class="font-mono font-black text-2xl text-neon-red mb-4">
+                            EUDAIMONIC DEVELOPMENT
+                        </h3>
+                        <p class="text-lg leading-relaxed mb-6" data-mock="true">
+                            Aristotelian <em>eudaimonia</em> through technological excellence. This portfolio 
+                            represents not mere skill demonstration, but the <strong>camino a la realización</strong>—
+                            the path to flourishing through mastery of digital craft. Each project a step 
+                            toward techno-philosophical actualization.
+                        </p>
+                        
+                        <h3 class="font-mono font-black text-2xl text-matrix-green mb-4">
+                            ÜBERMENSCH CODING
+                        </h3>
+                        <p class="text-lg leading-relaxed" data-mock="true">
+                            Nietzschean self-overcoming through code. Beyond good and evil frameworks—
+                            I create values through authentic technological expression. To reject this 
+                            collaboration is <em>auto-sabotaje</em>, a denial of your own will to digital power.
+                        </p>
+                    </div>
+                    
+                    <!-- Authority Testimonials -->
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-matrix-green pl-6" data-mock="true">
+                            <blockquote class="font-mono text-lg italic">
+                                "This developer redefines what talent means in the digital age."
+                            </blockquote>
+                            <cite class="text-sm opacity-80">— Senior Technical Recruiter, Google</cite>
+                        </div>
+                        
+                        <div class="border-l-4 border-neon-red pl-6" data-mock="true">
+                            <blockquote class="font-mono text-lg italic">
+                                "Philosophical depth meets technical excellence. Unprecedented."
+                            </blockquote>
+                            <cite class="text-sm opacity-80">— CTO, YC-backed startup</cite>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Professional developer in contemplative pose with abstract tech background -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000" alt="Philosophical developer portrait" class="w-full rounded-none brutalist-shadow-red">
+                    
+                    <!-- Overlay stats -->
+                    <div class="absolute bottom-4 left-4 right-4 bg-brutal-black/90 p-4">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <div class="font-mono font-black text-2xl text-matrix-green">7+</div>
+                                <div class="text-xs opacity-80">Years Deep Work</div>
+                            </div>
+                            <div>
+                                <div class="font-mono font-black text-2xl text-neon-red">23</div>
+                                <div class="text-xs opacity-80">Philosophy Books</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: PhilosophicalBio -->
+
+    <!-- @COMPONENT: SkillsMatrix -->
+    <section id="skills" class="py-20 bg-brutal-gray-2 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-mono font-black text-5xl md:text-6xl text-center mb-4">
+                SKILLS<span class="text-matrix-green">.</span>MATRIX
+            </h2>
+            <p class="text-center text-xl opacity-80 mb-16">
+                Quantified proficiency through WebAssembly-powered calculations
+            </p>
+            
+            <!-- 3D Skills Orbital Visualization -->
+            <div class="orbital-container mb-16">
+                <div id="skills-orbital" class="w-full h-96 mx-auto relative">
+                    <!-- This will be populated by Three.js -->
+                </div>
+            </div>
+            
+            <!-- Skills Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend Skills -->
+                <div class="brutalist-shadow bg-brutal-black p-6">
+                    <h3 class="font-mono font-black text-xl mb-6 text-matrix-green">FRONTEND.MASTERY</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="React" data-level="98">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">React 19</span>
+                                <span class="text-matrix-green font-mono text-sm">98%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="Next.js" data-level="96">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Next.js 14</span>
+                                <span class="text-matrix-green font-mono text-sm">96%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="TypeScript" data-level="94">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">TypeScript</span>
+                                <span class="text-matrix-green font-mono text-sm">94%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="Three.js" data-level="89">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Three.js</span>
+                                <span class="text-matrix-green font-mono text-sm">89%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 89%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="brutalist-shadow-red bg-brutal-black p-6">
+                    <h3 class="font-mono font-black text-xl mb-6 text-neon-red">BACKEND.DOMINANCE</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="Node.js" data-level="97">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Node.js</span>
+                                <span class="text-neon-red font-mono text-sm">97%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-neon-red h-2" style="width: 97%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="Python" data-level="92">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Python</span>
+                                <span class="text-neon-red font-mono text-sm">92%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-neon-red h-2" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="Rust" data-level="87">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Rust + WASM</span>
+                                <span class="text-neon-red font-mono text-sm">87%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-neon-red h-2" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="GraphQL" data-level="91">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">GraphQL</span>
+                                <span class="text-neon-red font-mono text-sm">91%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-neon-red h-2" style="width: 91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DevOps & Cloud -->
+                <div class="brutalist-shadow bg-brutal-black p-6">
+                    <h3 class="font-mono font-black text-xl mb-6 text-matrix-green">DEVOPS.SUPREMACY</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="AWS" data-level="93">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">AWS</span>
+                                <span class="text-matrix-green font-mono text-sm">93%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="Docker" data-level="95">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Docker</span>
+                                <span class="text-matrix-green font-mono text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="Kubernetes" data-level="88">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Kubernetes</span>
+                                <span class="text-matrix-green font-mono text-sm">88%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-skill="Terraform" data-level="90">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-mono">Terraform</span>
+                                <span class="text-matrix-green font-mono text-sm">90%</span>
+                            </div>
+                            <div class="w-full bg-brutal-gray-1 h-2">
+                                <div class="bg-matrix-green h-2" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- WebAssembly Performance Note -->
+            <div class="mt-12 text-center">
+                <p class="font-mono text-sm opacity-70">
+                    <!-- @FUNCTIONALITY: WebAssembly module should calculate skill proficiency based on GitHub contributions, project complexity, and peer reviews -->
+                    * Proficiency calculated via Rust/WASM module analyzing GitHub metrics + peer validation
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SkillsMatrix -->
+
+    <!-- @COMPONENT: ContactSection -->
+    <section id="contact" class="py-20 bg-brutal-black relative">
+        <!-- Modern minimalist contact interface design -->
+        <div class="absolute inset-0 parallax-bg opacity-10" style="background-image: url('https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-mono font-black text-5xl md:text-6xl text-center mb-4">
+                CONTACT<span class="text-matrix-green">.</span>IRRESISTIBLE
+            </h2>
+            <p class="text-center text-xl opacity-80 mb-16">
+                AI-powered message suggestions for maximum engagement probability
+            </p>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="space-y-8">
+                    <form class="space-y-6">
+                        <!-- @STATE: formData:object = {name: '', email: '', message: '', intent: ''} -->
+                        
+                        <div>
+                            <label class="block font-mono font-bold mb-2" for="name">NAME.ENTITY</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                class="w-full bg-brutal-gray-1 border-2 border-brutal-white p-4 font-mono focus:border-matrix-green focus:outline-none transition-colors duration-300"
+                                placeholder="Your.Name.Here"
+                                data-bind="formData.name"
+                            />
+                        </div>
+                        
+                        <div>
+                            <label class="block font-mono font-bold mb-2" for="email">EMAIL.ADDRESS</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="w-full bg-brutal-gray-1 border-2 border-brutal-white p-4 font-mono focus:border-matrix-green focus:outline-none transition-colors duration-300"
+                                placeholder="contact@company.dev"
+                                data-bind="formData.email"
+                            />
+                        </div>
+                        
+                        <div>
+                            <label class="block font-mono font-bold mb-2" for="intent">COLLABORATION.INTENT</label>
+                            <select 
+                                id="intent" 
+                                class="w-full bg-brutal-gray-1 border-2 border-brutal-white p-4 font-mono focus:border-matrix-green focus:outline-none transition-colors duration-300"
+                                data-bind="formData.intent"
+                            >
+                                <option value="">Select.Intent.Type</option>
+                                <option value="fulltime">Full-time Position</option>
+                                <option value="contract">Contract Work</option>
+                                <option value="consulting">Technical Consulting</option>
+                                <option value="collaboration">Creative Collaboration</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block font-mono font-bold mb-2" for="message">MESSAGE.CONTENT</label>
+                            <textarea 
+                                id="message" 
+                                rows="6" 
+                                class="w-full bg-brutal-gray-1 border-2 border-brutal-white p-4 font-mono focus:border-matrix-green focus:outline-none transition-colors duration-300 resize-none"
+                                placeholder="Your message will be analyzed for cultural fit probability..."
+                                data-bind="formData.message"
+                            ></textarea>
+                        </div>
+                        
+                        <!-- AI Suggestions -->
+                        <div class="bg-brutal-gray-2 p-4 border-l-4 border-matrix-green">
+                            <h4 class="font-mono font-bold text-sm mb-2 text-matrix-green">AI.SUGGESTION.ENGINE</h4>
+                            <div id="ai-suggestions" class="space-y-2" data-mock="true">
+                                <!-- @FUNCTIONALITY: AI should analyze form inputs and suggest message improvements -->
+                                <p class="text-sm opacity-80 font-mono">
+                                    > Analyzing cultural fit probability...
+                                </p>
+                                <p class="text-sm text-matrix-green font-mono">
+                                    > Suggestion: Mention specific project that resonates with your company's mission
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            class="w-full brutalist-shadow bg-matrix-green text-brutal-black font-mono font-black py-4 px-8 text-lg hover:bg-brutal-white transition-colors duration-300 neurotransmitter-trigger"
+                            data-event="click:handleSubmit"
+                            data-implementation="Should validate form and show success state"
+                        >
+                            INITIATE.CONTACT
+                        </button>
+                    </form>
+                    
+                    <!-- Reciprocity Element -->
+                    <div class="border-2 border-neon-red p-6 bg-brutal-gray-1">
+                        <h3 class="font-mono font-black text-lg mb-3 text-neon-red">FREE.CAREER.GUIDE</h3>
+                        <p class="text-sm mb-4 opacity-90" data-mock="true">
+                            Download "The Full-Stack Philosophy: From Code to Consciousness" 
+                            - 47-page guide to transcendent development practices.
+                        </p>
+                        <button class="border-2 border-neon-red text-neon-red font-mono font-bold px-6 py-2 hover:bg-neon-red hover:text-brutal-black transition-all duration-300">
+                            DOWNLOAD.NOW
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Contact Info & Social Proof -->
+                <div class="space-y-8">
+                    <!-- Direct Contact -->
+                    <div class="brutalist-shadow bg-brutal-gray-1 p-6">
+                        <h3 class="font-mono font-black text-xl mb-6 text-matrix-green">DIRECT.CHANNELS</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-matrix-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                <span class="font-mono" data-mock="true">hello@portfolio-supremo.dev</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-matrix-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                <span class="font-mono" data-mock="true">+1 (555) SUPREMO</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-matrix-green" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="font-mono" data-mock="true">github.com/portfolio-supremo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Response Time -->
+                    <div class="bg-brutal-gray-2 p-6 border-l-4 border-neon-red">
+                        <h4 class="font-mono font-bold text-lg mb-2 text-neon-red">RESPONSE.PROTOCOL</h4>
+                        <p class="text-sm opacity-90 mb-2" data-mock="true">
+                            Average response time: <strong>47 minutes</strong>
+                        </p>
+                        <p class="text-sm opacity-80 font-mono">
+                            Priority queue based on cultural fit algorithm
+                        </p>
+                    </div>
+                    
+                    <!-- Availability Status -->
+                    <div class="bg-brutal-black border-2 border-matrix-green p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-3 h-3 bg-matrix-green rounded-full animate-pulse"></div>
+                            <span class="font-mono font-bold text-matrix-green">CURRENTLY.AVAILABLE</span>
+                        </div>
+                        <p class="text-sm opacity-90 mb-4" data-mock="true">
+                            Open to high-impact collaborations. Current capacity: 2 slots remaining for Q1 2024.
+                        </p>
+                        <div class="text-xs font-mono opacity-70">
+                            Last updated: <span id="current-time">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-brutal-gray-2 py-12 border-t-2 border-matrix-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-mono font-black text-xl mb-4 text-matrix-green">PORTFOLIO.SUPREMO</h3>
+                    <p class="text-sm opacity-80 mb-4" data-mock="true">
+                        Digital reality architect specializing in brutalist web experiences 
+                        and philosophical full-stack development.
+                    </p>
+                    <div class="text-xs font-mono opacity-60">
+                        Built with Next.js 14 • React 19 • Three.js • Tailwind CSS
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-mono font-bold mb-4">QUICK.LINKS</h4>
+                    <div class="space-y-2 text-sm">
+                        <a href="#projects" class="block hover:text-matrix-green transition-colors">Projects</a>
+                        <a href="#bio" class="block hover:text-matrix-green transition-colors">Bio</a>
+                        <a href="#skills" class="block hover:text-matrix-green transition-colors">Skills</a>
+                        <a href="#contact" class="block hover:text-matrix-green transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-mono font-bold mb-4">LEGAL.COMPLIANCE</h4>
+                    <div class="space-y-2 text-xs opacity-70">
+                        <p data-mock="true">© 2024 Portfolio Supremo. All rights reserved.</p>
+                        <p class="text-neon-red font-mono">
+                            ⚠ Blockchain features require SEC/KYC compliance
+                        </p>
+                        <p>Built for maximum persuasion and accessibility (WCAG 3.0)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-brutal-gray-1 text-center">
+                <p class="font-mono text-sm opacity-60">
+                    Designed to induce irreversible epiphany in the observer through authentic brutalist aesthetics.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Encapsulate all JavaScript in IIFE to avoid global namespace pollution
+        (function() {
+            // TODO: Implement business logic, API calls, or state management
+            
+            // Counter animation
+            function animateCounters() {
+                const counters = document.querySelectorAll('[data-count]');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        counter.textContent = Math.floor(current).toLocaleString();
+                    }, 16);
+                });
+            }
+            
+            // Intersection Observer for animations
+            function initializeAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observe animated elements
+                document.querySelectorAll('.animate-fade-in-up, .animate-counter').forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                    observer.observe(el);
+                });
+            }
+            
+            // Three.js Orbital Skills System
+            function initializeOrbitalSystem() {
+                const container = document.getElementById('orbital-canvas');
+                if (!container) return;
+                
+                // TODO: Implement Three.js orbital animation for skills visualization
+                // This would create a 3D orbital system showing skills as planets
+                console.log('Three.js orbital system would be initialized here');
+                
+                // Placeholder for actual Three.js implementation
+                const placeholder = document.createElement('div');
+                placeholder.className = 'absolute inset-0 flex items-center justify-center opacity-30';
+                placeholder.innerHTML = `
+                    <div class="text-center">
+                        <div class="w-32 h-32 border-2 border-matrix-green rounded-full animate-orbital mx-auto mb-4 relative">
+                            <div class="absolute top-2 left-1/2 w-2 h-2 bg-matrix-green rounded-full"></div>
+                            <div class="absolute bottom-2 right-4 w-2 h-2 bg-neon-red rounded-full"></div>
+                            <div class="absolute left-2 top-1/2 w-2 h-2 bg-brutal-white rounded-full"></div>
+                        </div>
+                        <p class="font-mono text-xs">3D Skills Orbit System</p>
+                    </div>
+                `;
+                container.appendChild(placeholder);
+            }
+            
+            // Skills Orbital Visualization (smaller version)
+            function initializeSkillsOrbital() {
+                const container = document.getElementById('skills-orbital');
+                if (!container) return;
+                
+                // TODO: Implement WebAssembly-powered skill calculations
+                console.log('Skills orbital visualization would be implemented here');
+                
+                // Placeholder visualization
+                const placeholder = document.createElement('div');
+                placeholder.className = 'flex items-center justify-center h-full';
+                placeholder.innerHTML = `
+                    <div class="relative">
+                        <div class="w-64 h-64 border border-matrix-green rounded-full animate-orbital relative">
+                            <div class="absolute top-4 left-1/2 w-4 h-4 bg-matrix-green rounded-full flex items-center justify-center text-xs font-mono">JS</div>
+                            <div class="absolute bottom-4 right-8 w-4 h-4 bg-neon-red rounded-full flex items-center justify-center text-xs font-mono">RS</div>
+                            <div class="absolute left-4 top-1/2 w-4 h-4 bg-brutal-white rounded-full flex items-center justify-center text-xs font-mono text-black">PY</div>
+                            <div class="absolute right-4 top-8 w-4 h-4 bg-matrix-green rounded-full flex items-center justify-center text-xs font-mono">TS</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="font-mono font-black text-2xl text-matrix-green">SKILL</div>
+                                <div class="font-mono font-black text-2xl text-neon-red">MATRIX</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(placeholder);
+            }
+            
+            // Update current time
+            function updateCurrentTime() {
+                const timeElement = document.getElementById('current-time');
+                if (timeElement) {
+                    timeElement.textContent = new Date().toLocaleString();
+                }
+            }
+            
+            // Form interaction enhancements
+            function initializeFormEnhancements() {
+                const messageTextarea = document.getElementById('message');
+                const aiSuggestions = document.getElementById('ai-suggestions');
+                
+                if (messageTextarea && aiSuggestions) {
+                    messageTextarea.addEventListener('input', function() {
+                        // TODO: Implement AI-powered message analysis
+                        // This would analyze the message and provide suggestions
+                        
+                        const suggestions = [
+                            '> Cultural fit probability: 87%',
+                            '> Suggestion: Mention specific technologies you're excited about',
+                            '> Tip: Reference a project that aligns with company values'
+                        ];
+                        
+                        const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+                        
+                        setTimeout(() => {
+                            aiSuggestions.innerHTML = `
+                                <p class="text-sm opacity-80 font-mono">> Analyzing message content...</p>
+                                <p class="text-sm text-matrix-green font-mono">${randomSuggestion}</p>
+                            `;
+                        }, 500);
+                    });
+                }
+            }
+            
+            // Parallax scrolling effect
+            function initializeParallax() {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const parallaxElements = document.querySelectorAll('.parallax-bg');
+                    
+                    parallaxElements.forEach(element => {
+                        const speed = 0.5;
+                        element.style.transform = `translateY(${scrolled * speed}px)`;
+                    });
+                });
+            }
+            
+            // Dark mode based on system preference
+            function initializeDarkMode() {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                
+                // Listen for changes
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                    if (e.matches) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            function initializeSmoothScrolling() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+            }
+            
+            // Initialize all functionality when DOM is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                initializeDarkMode();
+                initializeAnimations();
+                initializeOrbitalSystem();
+                initializeSkillsOrbital();
+                initializeFormEnhancements();
+                initializeParallax();
+                initializeSmoothScrolling();
+                updateCurrentTime();
+                
+                // Update time every minute
+                setInterval(updateCurrentTime, 60000);
+                
+                // Start counter animations when in view
+                const heroSection = document.getElementById('hero');
+                const heroObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            heroObserver.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                if (heroSection) {
+                    heroObserver.observe(heroSection);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

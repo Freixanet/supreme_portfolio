@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "Dev: start server on 3000",
+      "command": "PORT=3000 npm run dev",
+      "group": "build",
+      "isBackground": true,
+      "problemMatcher": ["$tsc"]
+    }
+  ]
+}

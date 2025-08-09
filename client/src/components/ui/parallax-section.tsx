@@ -8,24 +8,20 @@ interface ParallaxSectionProps {
   backgroundImage?: string;
 }
 
-export default function ParallaxSection({ 
-  id, 
-  className = "", 
-  children, 
-  backgroundImage 
+export default function ParallaxSection({
+  id,
+  className = "",
+  children,
+  backgroundImage,
 }: ParallaxSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   useParallax(sectionRef);
 
   return (
-    <section 
-      id={id} 
-      ref={sectionRef}
-      className={className}
-    >
+    <section id={id} ref={sectionRef} className={`${className} cv-auto`}>
       {backgroundImage && (
-        <div 
-          className="absolute inset-0 parallax-bg opacity-10" 
+        <div
+          className="absolute inset-0 parallax-bg opacity-10"
           style={{ backgroundImage: `url('${backgroundImage}')` }}
         />
       )}

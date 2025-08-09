@@ -1,115 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0B0B0B;
-  --foreground: #FAFAFA;
-  --card: #0B0B0B;
-  --card-foreground: #FAFAFA;
-  --popover: #0B0B0B;
-  --popover-foreground: #FAFAFA;
-  --primary: #0EA5E9;
-  --primary-foreground: #0B0B0B;
-  --secondary: #1A1A1A;
-  --secondary-foreground: #FAFAFA;
-  --muted: #1A1A1A;
-  --muted-foreground: #A1A1AA;
-  --accent: #1A1A1A;
-  --accent-foreground: #FAFAFA;
-  --destructive: #EF4444;
-  --destructive-foreground: #FAFAFA;
-  --border: #2A2A2A;
-  --input: #1A1A1A;
-  --ring: #0EA5E9;
-  --chart-1: #0EA5E9;
-  --chart-2: #EF4444;
-  --chart-3: #F59E0B;
-  --chart-4: #8B5CF6;
-  --chart-5: #EC4899;
-  
+  --background: #0b0b0b;
+  --foreground: #fafafa;
+  --card: #0b0b0b;
+  --card-foreground: #fafafa;
+  --popover: #0b0b0b;
+  --popover-foreground: #fafafa;
+  --primary: #0ea5e9;
+  --primary-foreground: #0b0b0b;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #fafafa;
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1aa;
+  --accent: #1a1a1a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #2a2a2a;
+  --input: #1a1a1a;
+  --ring: #0ea5e9;
+  --chart-1: #0ea5e9;
+  --chart-2: #ef4444;
+  --chart-3: #f59e0b;
+  --chart-4: #8b5cf6;
+  --chart-5: #ec4899;
+
   /* Minimal luxury colors */
-  --minimal-black: #0B0B0B;
-  --minimal-white: #FAFAFA;
-  --minimal-gray-1: #1A1A1A;
-  --minimal-gray-2: #2A2A2A;
-  --minimal-secondary: #A1A1AA;
-  --sky-blue: #0EA5E9;
-  
+  --minimal-black: #0b0b0b;
+  --minimal-white: #fafafa;
+  --minimal-gray-1: #1a1a1a;
+  --minimal-gray-2: #2a2a2a;
+  --minimal-secondary: #a1a1aa;
+  --sky-blue: #0ea5e9;
+  --sunset-orange: #f59e0b; /* complementary to sky-blue */
+
   /* Fonts */
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-sans: 'Inter', sans-serif;
-  
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+
   --radius: 8px;
 }
 
 .dark {
-  --background: #0B0B0B;
-  --foreground: #FAFAFA;
-  --card: #0B0B0B;
-  --card-foreground: #FAFAFA;
-  --popover: #0B0B0B;
-  --popover-foreground: #FAFAFA;
-  --primary: #0EA5E9;
-  --primary-foreground: #0B0B0B;
-  --secondary: #1A1A1A;
-  --secondary-foreground: #FAFAFA;
-  --muted: #1A1A1A;
-  --muted-foreground: #A1A1AA;
-  --accent: #1A1A1A;
-  --accent-foreground: #FAFAFA;
-  --destructive: #EF4444;
-  --destructive-foreground: #FAFAFA;
-  --border: #2A2A2A;
-  --input: #1A1A1A;
-  --ring: #0EA5E9;
+  --background: #0b0b0b;
+  --foreground: #fafafa;
+  --card: #0b0b0b;
+  --card-foreground: #fafafa;
+  --popover: #0b0b0b;
+  --popover-foreground: #fafafa;
+  --primary: #0ea5e9;
+  --primary-foreground: #0b0b0b;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #fafafa;
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1aa;
+  --accent: #1a1a1a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #2a2a2a;
+  --input: #1a1a1a;
+  --ring: #0ea5e9;
+  --sunset-orange: #f59e0b;
 }
 
 @layer base {
+  /* Reset default UA margins and prevent top-margin collapse */
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    background: transparent; /* per new base */
+  }
+  body {
+    position: relative; /* keep stacking sane for backdrop */
+  }
+  main {
+    margin: 0;
+    display: flow-root; /* breaks margin-collapsing with first child */
+  }
+  main > *:first-child {
+    margin-top: 0; /* ensure no collapsed top margin creates a blank band */
+  }
+
   * {
     @apply border-border;
   }
-  
+
   body {
-    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
+    @apply font-sans antialiased text-foreground overflow-x-hidden;
+    /* Let ::before carry the visual background to avoid top-edge flatness in Chrome */
+    background: transparent !important;
+    background-blend-mode: normal;
+    position: relative;
     color-scheme: dark;
   }
-  
+
   html.dark {
     color-scheme: dark;
   }
-}
 
-@layer components {
-  .brutalist-shadow {
-    box-shadow: 8px 8px 0px var(--sky-blue);
-  }
-  
-  .brutalist-shadow-red {
-    box-shadow: 8px 8px 0px var(--minimal-secondary);
-  }
-  
-  .brutalist-shadow-white {
-    box-shadow: 8px 8px 0px var(--minimal-white);
-  }
-  
-  .neurotransmitter-trigger {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .neurotransmitter-trigger:hover {
-    transform: translateY(-2px) scale(1.02);
-  }
-  
   .parallax-bg {
-    background-attachment: fixed;
+    /* Remove background-attachment: fixed to avoid paint storms */
+    background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    will-change: transform;
+    transform: translateZ(0);
+    contain: paint;
   }
-  
+
   @media (max-width: 768px) {
     .parallax-bg {
       background-attachment: scroll;
@@ -117,83 +121,482 @@
   }
 }
 
+/* Fuente visual detrás de toda la página - MUY IMPORTANTE para el glassmorphism */
+body::before {
+  content: "";
+  position: fixed;
+  top: -200px; /* Extender mucho hacia arriba */
+  left: -50px;
+  right: -50px;
+  bottom: 0;
+  z-index: -2;
+  background: radial-gradient(120% 80% at 50% 0%, #121212 0%, #000 100%);
+  background-size: cover;
+}
+
+/* Patrón adicional para dar textura al fondo que se va a difuminar */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      circle at 25% 25%,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(255, 255, 255, 0.01) 0%,
+      transparent 50%
+    );
+  background-size: 400px 400px, 300px 300px;
+}
+
+@layer components {
+  .brutalist-shadow {
+    box-shadow: 8px 8px 0px var(--sky-blue);
+  }
+
+  .brutalist-shadow-red {
+    box-shadow: 8px 8px 0px var(--minimal-secondary);
+  }
+
+  .brutalist-shadow-white {
+    box-shadow: 8px 8px 0px var(--minimal-white);
+  }
+
+  .neurotransmitter-trigger {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neurotransmitter-trigger:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* Skip link (accessibility) – hidden by default, shown on focus-visible */
+  .skip-to-content {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    padding: 0.5rem 0.75rem;
+    z-index: 9999;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+    @apply bg-minimal-white text-minimal-black rounded font-mono font-bold shadow;
+  }
+  .skip-to-content:focus-visible {
+    transform: translateY(0);
+  }
+
+  /* ========== GLASSMORPHISM CHROME-PROOF ========== */
+  nav.glass,
+  header.glass {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 70px; /* Altura fija para evitar problemas de renderizado */
+    /* Fondo base sólido */
+    background: rgba(18, 18, 18, 0.18);
+    /* default tint for ::after multi-layer */
+    --glass-tint: rgba(12, 12, 12, 0.14);
+    /* Forzar nueva capa de composición */
+    transform: translateZ(0);
+    will-change: transform;
+    isolation: isolate;
+    /* Importante: sin overflow hidden inicialmente */
+    overflow: visible;
+  }
+
+  /* Capa de fondo difuminado que simula el glassmorphism */
+  nav.glass::before,
+  header.glass::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    right: -100px;
+    bottom: -20px;
+    z-index: -1;
+    /* Copia del fondo del body para difuminar */
+    background: radial-gradient(120% 80% at 50% 100px, #121212 0%, #000 100%),
+      radial-gradient(
+        circle at 25% 25%,
+        rgba(255, 255, 255, 0.02) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(255, 255, 255, 0.01) 0%,
+        transparent 50%
+      );
+    background-size: cover, 400px 400px, 300px 300px;
+    /* El blur que crea el efecto glass */
+    filter: blur(12px) saturate(160%) contrast(1.08) brightness(1.06);
+    /* Estabilización */
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Capa de overlay para el tinte */
+  nav.glass::after,
+  header.glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      /* top specular */ linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 55%),
+      /* bottom sheen */ linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%),
+      /* large soft highlight */ radial-gradient(200% 80% at 50% -60px, rgba(255,255,255,0.18), rgba(255,255,255,0) 75%),
+      var(--glass-tint);
+    background-blend-mode: screen, screen, overlay, normal;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), #000 22%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), #000 22%);
+  }
+
+  /* Contenido del nav */
+  nav.glass > .nav-inner,
+  header.glass > .nav-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: block; /* behave as a normal block container so inner flex spans full width */
+  }
+}
+
+/* ========== VARIANTE CON BACKDROP-FILTER COMO FALLBACK ========== */
+/* Solo para navegadores que lo soporten bien */
+@supports (backdrop-filter: blur(10px)) {
+  nav.glass.use-backdrop,
+  header.glass.use-backdrop {
+    /* Make sure Chrome samples the real backdrop */
+    isolation: auto;
+    transform: none;
+    background: rgba(12, 12, 12, 0.12);
+    backdrop-filter: blur(22px) saturate(200%) contrast(1.12) brightness(1.06);
+    -webkit-backdrop-filter: blur(22px) saturate(200%) contrast(1.12) brightness(1.06);
+  }
+  nav.glass.use-backdrop::after,
+  header.glass.use-backdrop::after {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0) 55%),
+      linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%),
+      radial-gradient(200% 80% at 50% -60px, rgba(255,255,255,0.20), rgba(255,255,255,0) 75%),
+      var(--glass-tint);
+    background-blend-mode: screen, screen, overlay, normal;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.22),
+      inset 0 -0.5px 0 rgba(255,255,255,0.08);
+  }
+}
+
+/* ========== VERSIÓN CON DISTORSIÓN SVG ========== */
+nav.glass.with-distortion::before,
+header.glass.with-distortion::before {
+  filter: url(#glass-distortion) blur(12px) saturate(170%) contrast(1.08) brightness(1.05);
+}
+
+/* ========== AJUSTES FINOS ========== */
+/* Más intenso */
+nav.glass.glass-heavy::before,
+header.glass.glass-heavy::before {
+  filter: blur(16px) saturate(140%) brightness(1.2);
+}
+nav.glass.glass-heavy::after,
+header.glass.glass-heavy::after {
+  background: rgba(12, 12, 12, 0.35);
+}
+/* Más sutil */
+nav.glass.glass-light::before,
+header.glass.glass-light::before {
+  filter: blur(16px) saturate(135%) brightness(1.1);
+}
+nav.glass.glass-light::after,
+header.glass.glass-light::after {
+  background: rgba(12, 12, 12, 0.14);
+  /* End of nav glass block */
+}
+
+/* Fine-tuning: lighter translucency for glass-light */
+nav.glass.glass-light,
+header.glass.glass-light {
+  background: rgba(18, 18, 18, 0.22);
+}
+
+/* Chrome-optimized native crystal variant */
+@supports (backdrop-filter: blur(10px)) {
+  nav.glass.crystal,
+  header.glass.crystal {
+    isolation: auto;
+    transform: none;
+    --glass-tint: rgba(12, 12, 12, 0.10);
+    backdrop-filter: blur(16px) saturate(160%) contrast(1.06) brightness(1.04);
+    -webkit-backdrop-filter: blur(16px) saturate(160%) contrast(1.06) brightness(1.04);
+    background: rgba(12, 12, 12, 0.10);
+  }
+  nav.glass.crystal::before,
+  header.glass.crystal::before { display: none; }
+  nav.glass.crystal::after,
+  header.glass.crystal::after {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 55%),
+      linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%),
+      radial-gradient(180% 70% at 50% -50px, rgba(255,255,255,0.16), rgba(255,255,255,0) 75%),
+      var(--glass-tint);
+    background-blend-mode: screen, screen, overlay, normal;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.18),
+      inset 0 -0.5px 0 rgba(255,255,255,0.08);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), #000 22%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), #000 22%);
+  }
+  /* Intensity controls */
+  nav.glass.crystal.glass-light,
+  header.glass.crystal.glass-light { --glass-tint: rgba(12,12,12,0.08); }
+  nav.glass.crystal.glass-heavy,
+  header.glass.crystal.glass-heavy { --glass-tint: rgba(12,12,12,0.16); }
+}
+
+/* Chrome hybrid: native backdrop + simulated distortion/overlays */
+@supports (backdrop-filter: blur(10px)) {
+  nav.glass.hybrid,
+  header.glass.hybrid {
+    isolation: auto;
+    transform: none;
+    --glass-tint: rgba(12, 12, 12, 0.10);
+    background: rgba(12, 12, 12, 0.10);
+    backdrop-filter: blur(18px) saturate(170%) contrast(1.08) brightness(1.06);
+    -webkit-backdrop-filter: blur(18px) saturate(170%) contrast(1.08) brightness(1.06);
+  }
+  /* Keep the simulated background to add crystalline richness */
+  nav.glass.hybrid::before,
+  header.glass.hybrid::before {
+    opacity: 0.75; /* let real backdrop show through */
+    filter: url(#glass-distortion) blur(12px) saturate(160%) contrast(1.06) brightness(1.05);
+  }
+  nav.glass.hybrid::after,
+  header.glass.hybrid::after {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.20), rgba(255,255,255,0) 55%),
+      linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%),
+      radial-gradient(180% 70% at 50% -50px, rgba(255,255,255,0.18), rgba(255,255,255,0) 75%),
+      var(--glass-tint);
+    background-blend-mode: screen, screen, overlay, normal;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.18),
+      inset 0 -0.5px 0 rgba(255,255,255,0.08);
+  }
+  /* Intensity controls */
+  nav.glass.hybrid.glass-light,
+  header.glass.hybrid.glass-light { --glass-tint: rgba(12,12,12,0.08); }
+  nav.glass.hybrid.glass-heavy,
+  header.glass.hybrid.glass-heavy { --glass-tint: rgba(12,12,12,0.16); }
+}
+
 @layer utilities {
   .text-sky-blue {
+    /* Unifica todos los azules con el degradado de “REALITY”, manteniendo compatibilidad con iconos (currentColor) */
     color: var(--sky-blue);
+    background-image: linear-gradient(
+      90deg,
+      var(--sky-blue) 0%,
+      #60a5fa 50%,
+      var(--sky-blue) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* solo texto; los SVG mantienen stroke via color */
   }
-  
+
+  /* Animated gradient for the word “REALITY” */
+  .reality-animated {
+    display: inline-block;
+    background-image: linear-gradient(
+        -30deg,
+        #7dd3fc 0%,
+        #60a5fa 22%,
+        #38bdf8 48%,
+        #3b82f6 62%,
+        #7dd3fc 100%
+      ),
+      linear-gradient(
+        115deg,
+        rgba(255, 255, 255, 0) 43%,
+        rgba(255, 255, 255, 0.56) 50%,
+        rgba(255, 255, 255, 0) 57%
+      );
+    background-size: 340% 340%, 190% 190%;
+    background-position: 0% 50%, -120% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: realitySweep 6.5s ease-in-out infinite;
+    will-change: background-position;
+    filter: drop-shadow(0 0 0.45rem rgba(14, 165, 233, 0.24));
+  }
+
+  .reality-animated:hover {
+    animation-duration: 3s;
+  }
+
+  @keyframes realitySweep {
+    0% {
+      background-position: 0% 50%, -120% 50%;
+    }
+    50% {
+      background-position: 100% 50%, 120% 50%;
+    }
+    100% {
+      background-position: 0% 50%, -120% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reality-animated {
+      animation: none;
+    }
+  }
+
+  /* Subtle elegant gradient for white headings */
+  .text-subtle-gradient {
+    color: var(--minimal-white); /* fallback */
+    background-image: linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #fbfcff 50%,
+      #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 0.03rem rgba(255, 255, 255, 0.12));
+  }
+
   .text-minimal-secondary {
     color: var(--minimal-secondary);
   }
-  
+
   .text-minimal-black {
     color: var(--minimal-black);
   }
-  
+
   .text-minimal-white {
     color: var(--minimal-white);
   }
-  
+
   .bg-sky-blue {
-    background-color: var(--sky-blue);
+    /* Fondo degradado como “REALITY” para elementos de fondo (botones, etc.) */
+    background-color: var(--sky-blue); /* fallback */
+    background-image: linear-gradient(
+      90deg,
+      var(--sky-blue) 0%,
+      #60a5fa 50%,
+      var(--sky-blue) 100%
+    );
   }
-  
+
+  /* New orange gradient utility used by the primary CTA */
+  .bg-sunset-orange {
+    background-color: var(--sunset-orange); /* fallback */
+    background-image: linear-gradient(
+      90deg,
+      var(--sunset-orange) 0%,
+      #fbbf24 50%,
+      var(--sunset-orange) 100%
+    );
+  }
+
   .bg-minimal-secondary {
     background-color: var(--minimal-secondary);
   }
-  
+
   .bg-minimal-black {
     background-color: var(--minimal-black);
   }
-  
+
   .bg-minimal-white {
     background-color: var(--minimal-white);
   }
-  
+
   .bg-minimal-gray-1 {
     background-color: var(--minimal-gray-1);
   }
-  
+
   .bg-minimal-gray-2 {
     background-color: var(--minimal-gray-2);
   }
-  
+
   .border-sky-blue {
-    border-color: var(--sky-blue);
+    /* Borde con degradado (si se usa con border, border-2, etc.) */
+    border-color: transparent; /* necesario para que se vea el border-image */
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      90deg,
+      var(--sky-blue) 0%,
+      #60a5fa 50%,
+      var(--sky-blue) 100%
+    );
   }
-  
+
   .border-minimal-secondary {
     border-color: var(--minimal-secondary);
   }
-  
+
   .border-minimal-white {
     border-color: var(--minimal-white);
   }
-  
+
   .font-mono {
     font-family: var(--font-mono);
   }
-  
+
   .font-black {
     font-weight: 900;
   }
-  
+
   .animate-orbital {
     animation: orbital 20s linear infinite;
   }
-  
+
   .animate-pulse-slow {
     animation: pulse 3s ease-in-out infinite;
   }
-  
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
-  
+
   .animate-counter {
     animation: counter 2s ease-out forwards;
   }
-  
+
+  /* NUEVAS utilidades de diseño unificado */
+  .card-surface {
+    /* reemplaza bg-minimal-black/60 que no existe con variables */
+    background-color: rgba(11, 11, 11, 0.6);
+    @apply backdrop-blur-sm border border-minimal-gray-2 rounded-lg; /* reduce blur from md to sm */
+  }
+
+  .elevation-1 {
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.33),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  .elevation-2 {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.42),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .heading-section {
+    @apply font-mono font-black text-5xl md:text-6xl;
+  }
+
+  .heading-card {
+    @apply font-mono font-black text-xl;
+  }
+
   @keyframes orbital {
     0% {
       transform: rotate(0deg);
@@ -202,7 +605,7 @@
       transform: rotate(360deg);
     }
   }
-  
+
   @keyframes fadeInUp {
     0% {
       opacity: 0;
@@ -213,7 +616,7 @@
       transform: translateY(0);
     }
   }
-  
+
   @keyframes counter {
     0% {
       transform: translateY(20px);
@@ -224,17 +627,58 @@
       opacity: 1;
     }
   }
-  
+
+  /* Custom smooth bounce with inertia for scroll indicator */
+  @keyframes bounceInertia {
+    0% {
+      transform: translateY(0);
+      opacity: 0.95;
+    }
+    20% {
+      transform: translateY(8px);
+    }
+    40% {
+      transform: translateY(0);
+    }
+    55% {
+      transform: translateY(5px);
+    }
+    70% {
+      transform: translateY(0);
+    }
+    82% {
+      transform: translateY(3px);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-bounce-inertia {
+    animation: bounceInertia 2.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    will-change: transform, opacity;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-bounce-inertia {
+      animation: none !important;
+    }
+  }
+
   /* Performance optimizations for smoother scrolling */
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
   }
-  
+
   /* Optimize animations for better performance */
   .animate-orbital,
   .animate-pulse-slow,
@@ -242,10 +686,74 @@
   .animate-counter {
     will-change: transform, opacity;
   }
-  
-  /* Remove heavy transforms to improve scroll performance */
-  * {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+
+  /* Content-visibility optimization */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px 800px; /* conservative fallback size; doesn't affect final layout */
   }
+
+  .primary-cta-orange {
+    --primary: var(--sunset-orange);
+    --primary-foreground: var(--minimal-black);
+  }
+
+  .text-crisp {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision; /* per new version */
+  }
+}
+
+/* Remove diagonal grain lines from glass overlays */
+nav.glass::after,
+header.glass::after {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 55%),
+    linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%),
+    radial-gradient(200% 80% at 50% -60px, rgba(255,255,255,0.18), rgba(255,255,255,0) 75%),
+    var(--glass-tint);
+  background-blend-mode: screen, screen, overlay, normal;
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  nav.glass.use-backdrop::after,
+  header.glass.use-backdrop::after,
+  nav.glass.crystal::after,
+  header.glass.crystal::after,
+  nav.glass.hybrid::after,
+  header.glass.hybrid::after {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.20), rgba(255,255,255,0) 55%),
+      linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 40%),
+      radial-gradient(180% 70% at 50% -50px, rgba(255,255,255,0.18), rgba(255,255,255,0) 75%),
+      var(--glass-tint);
+    background-blend-mode: screen, screen, overlay, normal;
+  }
+}
+
+/* Chrome-safe nav glass structure */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  height: 70px;
+  isolation: isolate; /* stable context */
+}
+.nav__glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(12, 12, 12, 0.12); /* subtle tint */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+          backdrop-filter: saturate(1.6) blur(14px);
+  will-change: backdrop-filter;
+}
+.nav__content {
+  position: relative;
+}
+
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .nav__glass { background: rgba(12, 12, 12, 0.24); }
 }
