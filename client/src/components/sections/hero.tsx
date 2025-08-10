@@ -228,21 +228,21 @@ export default function Hero() {
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
       <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-24 sm:pt-32 md:pt-40 pb-20 sm:pb-28 md:pb-36">
-        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] mb-6 motion-safe:animate-fade-in-up">
+        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-5 sm:px-0 motion-safe:animate-fade-in-up">
           <span className="block text-subtle-gradient">DIGITAL</span>
           <span className="block reality-animated">REALITY</span>
-          <span className="block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient px-3 sm:px-0 tracking-[-0.01em] sm:tracking-normal">
+          <span className="block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient tracking-[-0.01em] sm:tracking-normal">
             ARCHITECT
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-2xl lg:text-[22px] font-light max-w-4xl mx-auto mb-10 leading-relaxed opacity-90">
+        <p className="text-base sm:text-lg md:text-2xl lg:text-[22px] font-light max-w-4xl mx-auto pb-10 leading-relaxed opacity-90">
           Full-stack developer who <strong>moldea realidades digitales</strong>{" "}
           through authentic brutalist design and cosmic skill mastery.
         </p>
 
         {/* Social Proof Counters */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-8 mb-12 w-full max-w-4xl mx-auto">
+        <div className="grid grid-cols-3 gap-2 sm:gap-8 pb-12 w-full max-w-4xl mx-auto">
           <div className="text-center motion-safe:animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-2 py-3 sm:px-4 sm:py-5 overflow-visible">
             <div className="inline-flex flex-col items-center gap-1 w-max mx-auto">
               <Counter
@@ -288,7 +288,7 @@ export default function Hero() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pb-4">
           <Button
             ref={ctaRef}
             variant="orange"
@@ -363,13 +363,13 @@ export default function Hero() {
         </div>
 
         {/* Persuasive microcopy (urgency without deception) */}
-        <div className="mt-4 font-mono text-xs sm:text-sm text-sky-blue/90">
+        <div className="pt-4 font-mono text-xs sm:text-sm text-sky-blue/90">
           Start today — quick reply. Free 15‑min strategy call.
         </div>
 
         {/* Social-proof rotating micro-badge */}
         <div
-          className="mt-14 flex justify-center"
+          className="pt-14 flex justify-center"
           onMouseEnter={() => setBadgePaused(true)}
           onMouseLeave={() => setBadgePaused(false)}
         >
