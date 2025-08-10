@@ -227,7 +227,7 @@ export default function Hero() {
       id="hero"
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
-      <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-24 sm:pt-32 md:pt-40 pb-20 sm:pb-28 md:pb-36">
+      <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-12 sm:pt-20 md:pt-28 pb-20 sm:pb-28 md:pb-36">
         <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-5 sm:px-0 motion-safe:animate-fade-in-up">
           <span className="block text-subtle-gradient">DIGITAL</span>
           <span className="block reality-animated">REALITY</span>
