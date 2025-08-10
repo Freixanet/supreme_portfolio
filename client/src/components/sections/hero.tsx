@@ -238,8 +238,7 @@ export default function Hero() {
 
         <p className="text-base sm:text-lg md:text-2xl lg:text-[22px] font-light max-w-4xl mx-auto mb-10 leading-relaxed opacity-90">
           Full-stack developer who <strong>moldea realidades digitales</strong>{" "}
-          through authentic brutalist design and cosmic skill mastery. From
-          primeros principios to production deployment.
+          through authentic brutalist design and cosmic skill mastery.
         </p>
 
         {/* Social Proof Counters */}
