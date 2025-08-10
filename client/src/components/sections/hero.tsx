@@ -292,7 +292,7 @@ export default function Hero() {
           <Button
             ref={ctaRef}
             variant="orange"
-            className="group relative isolate overflow-hidden rounded-lg font-mono font-black px-6 py-3.5 text-base sm:px-8 sm:py-4.5 sm:text-lg xl:text-xl shadow-lg transition-all duration-300 will-change-transform hover:translate-y-px hover:shadow-xl active:translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue/70"
+            className="group relative isolate overflow-hidden rounded-lg font-mono font-black px-6 py-3.5 text-base sm:px-8 sm:py-4.5 sm:text-lg xl:text-xl shadow-lg transition-all duration-300 will-change-transform hover:translate-y-px hover:shadow-xl active:translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue/70 [--x:50%] [--y:50%] scale-[1.008] sm:scale-100"
             onClick={(e) => {
               document
                 .querySelector("#contact")
@@ -342,12 +342,12 @@ export default function Hero() {
             {/* Animated gradient border glow */}
             <span
               aria-hidden
-              className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-25 mix-blend-overlay blur-[2px] [background:conic-gradient(from_0deg,rgba(0,0,0,0)_0%,rgba(255,255,255,0.35)_15%,rgba(0,0,0,0)_30%,rgba(255,255,255,0.35)_45%,rgba(0,0,0,0)_60%,rgba(255,255,255,0.35)_75%,rgba(0,0,0,0)_90%)] animate-[spin_6s_linear_infinite] group-hover:opacity-60"
+              className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-60 sm:opacity-25 mix-blend-overlay blur-[2px] [background:conic-gradient(from_0deg,rgba(0,0,0,0)_0%,rgba(255,255,255,0.35)_15%,rgba(0,0,0,0)_30%,rgba(255,255,255,0.35)_45%,rgba(0,0,0,0)_60%,rgba(255,255,255,0.35)_75%,rgba(0,0,0,0)_90%)] animate-[spin_6s_linear_infinite] sm:group-hover:opacity-60"
             />
-            {/* Pointer-follow glow */}
+            {/* Pointer-follow glow (always on in mobile, hover on sm+) */}
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:radial-gradient(160px_160px_at_var(--x,_50%)_var(--y,_50%),rgba(255,255,255,0.35),rgba(255,255,255,0)_60%)] mix-blend-overlay"
+              className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-100 sm:opacity-0 transition-opacity duration-300 sm:group-hover:opacity-100 [background:radial-gradient(160px_160px_at_var(--x,_50%)_var(--y,_50%),rgba(255,255,255,0.35),rgba(255,255,255,0)_60%)] mix-blend-overlay"
             />
             <span className="relative z-[1]">HIRE ME NOW</span>
           </Button>
