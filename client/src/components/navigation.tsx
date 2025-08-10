@@ -1,11 +1,29 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { useThemeToggle } from "@/hooks/use-dark-mode";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("#hero");
   const [progress, setProgress] = useState(0);
+
+  const { toggle } = useThemeToggle();
+  const [dark, setDark] = useState<boolean>(() =>
+    typeof document !== "undefined"
+      ? document.documentElement.classList.contains("dark")
+      : true
+  );
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const saved = localStorage.getItem("theme") as "light" | "dark" | null;
+    const initial = saved ? saved === "dark" : media.matches;
+    setDark(initial);
+  }, []);
+  const onThemeToggle = () => {
+    toggle();
+    setDark((v) => !v);
+  };
 
   const navItems = [
     { href: "#hero", label: "HOME" },
@@ -86,6 +104,7 @@ export default function Navigation() {
 
         <div className="nav-inner w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[70px]">
           <div className="flex justify-between items-center h-full">
+            {/* Brand */}
             <div className="text-xl tracking-wider">
               <span className="text-sky-blue">&gt;</span>
               <a
@@ -93,7 +112,7 @@ export default function Navigation() {
                 className="inline-flex items-center gap-2 ml-2"
                 aria-label="Go to home"
               >
-                <span className="font-mono font-black italic text-minimal-white leading-none text-crisp">
+                <span className="font-mono font-black italic text-foreground leading-none text-crisp">
                   FREIXANET
                 </span>
                 <Badge
@@ -105,18 +124,21 @@ export default function Navigation() {
               </a>
             </div>
 
+            {/* Desktop nav items */}
             <div className="hidden md:flex space-x-8 font-mono font-bold">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   type="button"
                   onClick={() => scrollToSection(item.href)}
-                  className={`relative inline-flex flex-col items-center text-minimal-white hover:text-sky-blue transition-colors duration-300 ${
+                  className={`relative inline-flex flex-col items-center text-foreground hover:text-sky-blue transition-colors duration-300 ${
                     activeSection === item.href
                       ? "text-sky-blue after:content-[''] after:absolute after:-bottom-1 after:h-0.5 after:w-6 after:bg-gradient-to-r after:from-sky-blue after:to-blue-500 after:rounded-full"
                       : ""
                   }`}
-                  aria-current={activeSection === item.href ? "page" : undefined}
+                  aria-current={
+                    activeSection === item.href ? "page" : undefined
+                  }
                   data-testid={`nav-${item.label.toLowerCase()}`}
                 >
                   {item.label}
@@ -124,17 +146,37 @@ export default function Navigation() {
               ))}
             </div>
 
-            <button
-              className="md:hidden text-minimal-white hover:text-sky-blue"
-              onClick={() => setIsOpen(!isOpen)}
-              data-testid="mobile-menu-button"
-              type="button"
-              aria-expanded={isOpen}
-              aria-controls="primary-navigation"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {/* Right controls: theme + mobile menu */}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={onThemeToggle}
+                aria-label="Toggle theme"
+                className="inline-flex items-center justify-center text-foreground hover:text-sky-blue p-0"
+              >
+                {dark ? (
+                  <Sun className="h-[18px] w-[18px]" />
+                ) : (
+                  <Moon className="h-[18px] w-[18px]" />
+                )}
+              </button>
+
+              <button
+                className="md:hidden text-foreground hover:text-sky-blue"
+                onClick={() => setIsOpen(!isOpen)}
+                data-testid="mobile-menu-button"
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls="primary-navigation"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+              >
+                {isOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu */}

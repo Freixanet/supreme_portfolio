@@ -3,6 +3,58 @@
 @tailwind utilities;
 
 :root {
+  /* Light theme tokens */
+  --background: #fafafa;
+  --foreground: #0b0b0b;
+  --card: #ffffff;
+  --card-foreground: #0b0b0b;
+  --popover: #ffffff;
+  --popover-foreground: #0b0b0b;
+  --primary: #0ea5e9;
+  --primary-foreground: #0b0b0b;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #0b0b0b;
+  --muted: #f5f5f5;
+  --muted-foreground: #4b5563;
+  --accent: #f3f4f6;
+  --accent-foreground: #0b0b0b;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #f3f4f6;
+  --ring: #0ea5e9;
+  --chart-1: #0ea5e9;
+  --chart-2: #ef4444;
+  --chart-3: #f59e0b;
+  --chart-4: #8b5cf6;
+  --chart-5: #ec4899;
+
+  /* Minimal luxury colors (light) */
+  --minimal-black: #0b0b0b;
+  --minimal-white: #fafafa;
+  --minimal-gray-1: #f3f4f6;
+  --minimal-gray-2: #e5e7eb;
+  --minimal-secondary: #6b7280;
+  --sky-blue: #0ea5e9;
+  --sunset-orange: #f59e0b;
+
+  /* Fonts */
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+
+  --radius: 8px;
+
+  /* Theme-aware surfaces and nav glass (light) */
+  --nav-glass-bg: rgba(255, 255, 255, 0.55);
+  --nav-glass-border: rgba(0, 0, 0, 0.08);
+  --card-surface: rgba(255, 255, 255, 0.75);
+  /* Heading gradient (light) */
+  --heading-grad-1: #0f172a; /* slate-900 */
+  --heading-grad-2: #111827; /* gray-900 */
+}
+
+.dark {
+  /* Dark theme tokens */
   --background: #0b0b0b;
   --foreground: #fafafa;
   --card: #0b0b0b;
@@ -11,11 +63,11 @@
   --popover-foreground: #fafafa;
   --primary: #0ea5e9;
   --primary-foreground: #0b0b0b;
-  --secondary: #1a1a1a;
+  --secondary: #121212;
   --secondary-foreground: #fafafa;
-  --muted: #1a1a1a;
+  --muted: #121212;
   --muted-foreground: #a1a1aa;
-  --accent: #1a1a1a;
+  --accent: #121212;
   --accent-foreground: #fafafa;
   --destructive: #ef4444;
   --destructive-foreground: #fafafa;
@@ -28,43 +80,21 @@
   --chart-4: #8b5cf6;
   --chart-5: #ec4899;
 
-  /* Minimal luxury colors */
   --minimal-black: #0b0b0b;
   --minimal-white: #fafafa;
   --minimal-gray-1: #1a1a1a;
   --minimal-gray-2: #2a2a2a;
   --minimal-secondary: #a1a1aa;
   --sky-blue: #0ea5e9;
-  --sunset-orange: #f59e0b; /* complementary to sky-blue */
-
-  /* Fonts */
-  --font-mono: "JetBrains Mono", monospace;
-  --font-sans: "Inter", sans-serif;
-
-  --radius: 8px;
-}
-
-.dark {
-  --background: #0b0b0b;
-  --foreground: #fafafa;
-  --card: #0b0b0b;
-  --card-foreground: #fafafa;
-  --popover: #0b0b0b;
-  --popover-foreground: #fafafa;
-  --primary: #0ea5e9;
-  --primary-foreground: #0b0b0b;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #fafafa;
-  --muted: #1a1a1a;
-  --muted-foreground: #a1a1aa;
-  --accent: #1a1a1a;
-  --accent-foreground: #fafafa;
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
-  --border: #2a2a2a;
-  --input: #1a1a1a;
-  --ring: #0ea5e9;
   --sunset-orange: #f59e0b;
+
+  /* Theme-aware surfaces and nav glass (dark) */
+  --nav-glass-bg: rgba(12, 12, 12, 0.12);
+  --nav-glass-border: rgba(255, 255, 255, 0.16);
+  --card-surface: rgba(11, 11, 11, 0.6);
+  /* Heading gradient (dark) */
+  --heading-grad-1: #ffffff;
+  --heading-grad-2: #fbfcff;
 }
 
 @layer base {
@@ -92,19 +122,19 @@
 
   body {
     @apply font-sans antialiased text-foreground overflow-x-hidden;
-    /* Let ::before carry the visual background to avoid top-edge flatness in Chrome */
     background: transparent !important;
     background-blend-mode: normal;
     position: relative;
-    color-scheme: dark;
   }
 
   html.dark {
     color-scheme: dark;
   }
+  html:not(.dark) {
+    color-scheme: light;
+  }
 
   .parallax-bg {
-    /* Remove background-attachment: fixed to avoid paint storms */
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
@@ -123,23 +153,45 @@
 
 /* Fuente visual detrás de toda la página - MUY IMPORTANTE para el glassmorphism */
 body::before {
+  /* light substrate by default */
   content: "";
   position: fixed;
-  top: -200px; /* Extender mucho hacia arriba */
+  top: -200px;
   left: -50px;
   right: -50px;
   bottom: 0;
   z-index: -2;
-  background: radial-gradient(120% 80% at 50% 0%, #121212 0%, #000 100%);
+  background: radial-gradient(120% 80% at 50% 0%, var(--minimal-gray-1) 0%, var(--minimal-white) 100%);
   background-size: cover;
 }
 
-/* Patrón adicional para dar textura al fondo que se va a difuminar */
+/* Restore original dark substrate exactly as before */
+.dark body::before {
+  background: radial-gradient(120% 80% at 50% 0%, #121212 0%, #000000 100%);
+}
+
+/* Texture layer */
 body::after {
+  /* light subtle dark specks */
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
+  background: radial-gradient(
+      circle at 25% 25%,
+      rgba(0, 0, 0, 0.035) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(0, 0, 0, 0.025) 0%,
+      transparent 50%
+    );
+  background-size: 400px 400px, 300px 300px;
+}
+
+/* Restore original dark texture with faint white glints */
+.dark body::after {
   background: radial-gradient(
       circle at 25% 25%,
       rgba(255, 255, 255, 0.02) 0%,
@@ -461,17 +513,12 @@ header.glass.glass-light {
 
   /* Subtle elegant gradient for white headings */
   .text-subtle-gradient {
-    color: var(--minimal-white); /* fallback */
-    background-image: linear-gradient(
-      90deg,
-      #ffffff 0%,
-      #fbfcff 50%,
-      #ffffff 100%
-    );
+    color: var(--foreground); /* fallback */
+    background-image: linear-gradient(90deg, var(--heading-grad-1) 0%, var(--heading-grad-2) 50%, var(--heading-grad-1) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 0.03rem rgba(255, 255, 255, 0.12));
+    filter: drop-shadow(0 0 0.03rem rgba(0, 0, 0, 0.06));
   }
 
   .text-minimal-secondary {
@@ -574,9 +621,8 @@ header.glass.glass-light {
 
   /* NUEVAS utilidades de diseño unificado */
   .card-surface {
-    /* reemplaza bg-minimal-black/60 que no existe con variables */
-    background-color: rgba(11, 11, 11, 0.6);
-    @apply backdrop-blur-sm border border-minimal-gray-2 rounded-lg; /* reduce blur from md to sm */
+    background-color: var(--card-surface);
+    @apply backdrop-blur-sm border border-minimal-gray-2 rounded-lg;
   }
 
   .elevation-1 {
@@ -744,8 +790,8 @@ header.glass::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: rgba(12, 12, 12, 0.12); /* subtle tint */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--nav-glass-bg);
+  border-bottom: 1px solid var(--nav-glass-border);
   -webkit-backdrop-filter: saturate(1.6) blur(14px);
           backdrop-filter: saturate(1.6) blur(14px);
   will-change: backdrop-filter;
