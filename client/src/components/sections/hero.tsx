@@ -231,7 +231,9 @@ export default function Hero() {
         <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] mb-6 motion-safe:animate-fade-in-up">
           <span className="block text-subtle-gradient">DIGITAL</span>
           <span className="block reality-animated">REALITY</span>
-          <span className="block text-subtle-gradient">ARCHITECT</span>
+          <span className="block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient px-3 sm:px-0 tracking-[-0.01em] sm:tracking-normal">
+            ARCHITECT
+          </span>
         </h1>
 
         <p className="text-base sm:text-lg md:text-2xl lg:text-[22px] font-light max-w-4xl mx-auto mb-10 leading-relaxed opacity-90">
