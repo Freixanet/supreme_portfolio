@@ -228,7 +228,7 @@ export default function Hero() {
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
       <div className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 md:pt-40 pb-20 sm:pb-28 md:pb-36">
-        <h1 className="font-mono font-black text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] mb-6 motion-safe:animate-fade-in-up">
+        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] mb-6 motion-safe:animate-fade-in-up">
           <span className="block text-subtle-gradient">DIGITAL</span>
           <span className="block reality-animated">REALITY</span>
           <span className="block text-subtle-gradient">ARCHITECT</span>
@@ -313,7 +313,9 @@ export default function Hero() {
                   animRef.current.cx += (0 - animRef.current.cx) * SPRING;
                   animRef.current.cy += (0 - animRef.current.cy) * SPRING;
                   if (ctaRef.current) {
-                    ctaRef.current.style.transform = `translate3d(${animRef.current.cx.toFixed(2)}px, ${animRef.current.cy.toFixed(2)}px, 0) scale(1)`;
+                    ctaRef.current.style.transform = `translate3d(${animRef.current.cx.toFixed(
+                      2
+                    )}px, ${animRef.current.cy.toFixed(2)}px, 0) scale(1)`;
                   }
                   if (
                     Math.abs(animRef.current.cx) > 0.1 ||
