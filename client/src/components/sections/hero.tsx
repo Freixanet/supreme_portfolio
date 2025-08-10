@@ -227,7 +227,7 @@ export default function Hero() {
       id="hero"
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
-      <div className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 md:pt-40 pb-20 sm:pb-28 md:pb-36">
+      <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-24 sm:pt-32 md:pt-40 pb-20 sm:pb-28 md:pb-36">
         <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] mb-6 motion-safe:animate-fade-in-up">
           <span className="block text-subtle-gradient">DIGITAL</span>
           <span className="block reality-animated">REALITY</span>
@@ -242,45 +242,45 @@ export default function Hero() {
         </p>
 
         {/* Social Proof Counters */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 max-w-xl mx-auto">
-          <div className="text-center motion-safe:animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-3 py-4 sm:px-4 sm:py-5 overflow-visible">
+        <div className="grid grid-cols-3 gap-2 sm:gap-8 mb-12 w-full max-w-4xl mx-auto">
+          <div className="text-center motion-safe:animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-2 py-3 sm:px-4 sm:py-5 overflow-visible">
             <div className="inline-flex flex-col items-center gap-1 w-max mx-auto">
               <Counter
                 target={15247}
-                className="font-mono font-black text-2xl md:text-3xl text-sky-blue leading-[1.15] whitespace-nowrap inline-block"
+                className="font-mono font-black text-xl sm:text-2xl md:text-3xl text-sky-blue leading-[1.15] whitespace-nowrap inline-block"
                 data-testid="counter-github-stars"
               />
-              <div className="text-sm text-minimal-secondary text-center w-full">
+              <div className="text-[11px] sm:text-sm text-minimal-secondary text-center w-full">
                 GitHub Stars
               </div>
             </div>
           </div>
           <div
-            className="text-center motion-safe:animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-3 py-4 sm:px-4 sm:py-5 overflow-visible"
+            className="text-center motion-safe:animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-2 py-3 sm:px-4 sm:py-5 overflow-visible"
             style={{ animationDelay: "0.2s" }}
           >
             <div className="inline-flex flex-col items-center gap-1 w-max mx-auto">
               <Counter
                 target={89342}
-                className="font-mono font-black text-2xl md:text-3xl text-sky-blue leading-[1.15] whitespace-nowrap inline-block"
+                className="font-mono font-black text-xl sm:text-2xl md:text-3xl text-sky-blue leading-[1.15] whitespace-nowrap inline-block"
                 data-testid="counter-profile-views"
               />
-              <div className="text-sm text-minimal-secondary text-center w-full">
+              <div className="text-[11px] sm:text-sm text-minimal-secondary text-center w-full">
                 Profile Views
               </div>
             </div>
           </div>
           <div
-            className="text-center motion-safe:animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-3 py-4 sm:px-4 sm:py-5 overflow-visible"
+            className="text-center motion-safe:animate-counter bg-minimal-black/20 backdrop-blur-sm rounded-lg px-2 py-3 sm:px-4 sm:py-5 overflow-visible"
             style={{ animationDelay: "0.4s" }}
           >
             <div className="inline-flex flex-col items-center gap-1 w-max mx-auto">
               <Counter
                 target={127}
-                className="font-mono font-black text-2xl md:text-3xl text-sky-blue leading-[1.15] whitespace-nowrap inline-block"
+                className="font-mono font-black text-xl sm:text-2xl md:text-3xl text-sky-blue leading-[1.15] whitespace-nowrap inline-block"
                 data-testid="counter-projects"
               />
-              <div className="text-sm text-minimal-secondary text-center w-full">
+              <div className="text-[11px] sm:text-sm text-minimal-secondary text-center w-full">
                 Projects
               </div>
             </div>
