@@ -288,7 +288,7 @@ export default function Hero() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pb-4">
+        <div className="flex flex-row flex-wrap gap-5 sm:gap-7 justify-center items-center pb-4">
           <Button
             ref={ctaRef}
             variant="orange"
