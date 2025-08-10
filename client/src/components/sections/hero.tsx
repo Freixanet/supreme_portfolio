@@ -22,9 +22,9 @@ export default function Hero() {
 
   // Simplified: only update CSS vars for pointer glow
   const handleButtonMove = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.MouseEvent<HTMLElement, MouseEvent>
   ) => {
-    const el = e.currentTarget;
+    const el = e.currentTarget as HTMLElement;
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -156,25 +156,25 @@ export default function Hero() {
       id="hero"
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
-      <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-12 sm:pt-20 md:pt-28 pb-20 sm:pb-28 md:pb-36">
-        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-5 sm:px-0">
+      <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-6 sm:pt-12 md:pt-20 pb-20 sm:pb-28 md:pb-36">
+        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-5 sm:px-0 cursor-default select-none">
           <span
-            className={`block text-subtle-gradient transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            className={`block text-subtle-gradient transform [transition-property:opacity,transform,filter] duration-[1600ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
               titleReady
                 ? "opacity-100 translate-y-0 [filter:blur(0px)]"
                 : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
             }`}
-            style={{ transitionDelay: "0s" }}
+            style={{ transitionDelay: "0.25s" }}
           >
             DIGITAL
           </span>
           <span
-            className={`block reality-animated transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            className={`block reality-animated transform [transition-property:opacity,transform,filter] duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
               titleReady
                 ? "opacity-100 translate-y-0 [filter:blur(0px)]"
                 : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
             }`}
-            style={{ transitionDelay: "0.35s" }}
+            style={{ transitionDelay: "0.8s" }}
           >
             REALITY
           </span>
@@ -184,7 +184,7 @@ export default function Hero() {
                 ? "opacity-100 translate-y-0 [filter:blur(0px)]"
                 : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
             }`}
-            style={{ transitionDelay: "0.7s" }}
+            style={{ transitionDelay: "1.35s" }}
           >
             ARCHITECT
           </span>
@@ -280,16 +280,16 @@ export default function Hero() {
           {/* Secondary CTA */}
           <Button
             variant="outline"
-            className="relative overflow-hidden border border-minimal-white text-minimal-white font-mono font-bold px-6 py-3.5 text-base sm:px-8 sm:py-4.5 sm:text-lg transition-all duration-300 glass-button glass-preserve-color !rounded-xl hover:bg-transparent hover:text-current"
+            className="relative overflow-hidden border-2 border-minimal-white text-minimal-white font-mono font-bold px-6 py-3.5 text-base sm:px-8 sm:py-4.5 sm:text-lg transition-all duration-300 !rounded-xl hover:bg-transparent hover:text-current shadow-[0_0_0_1px_rgba(14,165,233,0.22),0_6px_24px_rgba(14,165,233,0.1)]"
             onClick={scrollToProjects}
-            onMouseMove={handleButtonMove}
             data-testid="button-view-projects"
           >
-            {/* Liquid Glass layers */}
-            <span className="glass-filter rounded-[inherit]" aria-hidden />
-            <span className="glass-overlay rounded-[inherit]" aria-hidden />
-            <span className="glass-specular rounded-[inherit]" aria-hidden />
-            <span className="relative z-[4]">VIEW PROJECTS</span>
+            {/* Elegant luminous edge (no glass) */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_0_0_1px_rgba(14,165,233,0.28),inset_0_1px_0_rgba(255,255,255,0.12)]"
+            />
+            <span className="relative z-[1]">VIEW PROJECTS</span>
           </Button>
         </div>
 
@@ -306,9 +306,18 @@ export default function Hero() {
         >
           <Badge
             variant="glass"
-            className="px-2.5 py-1 text-[10px] sm:text-xs overflow-hidden whitespace-nowrap leading-none min-h-[22px] sm:min-h-[24px]"
+            className="relative overflow-hidden glass-button glass-preserve-color [--x:50%] [--y:50%] px-2.5 py-1 text-[10px] sm:text-xs whitespace-nowrap leading-none min-h-[22px] sm:min-h-[24px]"
+            onMouseMove={handleButtonMove}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.setProperty("--x", "50%");
+              el.style.setProperty("--y", "50%");
+            }}
           >
-            <span key={badgeIndex} className="block animate-fade-in-up">
+            <span className="glass-filter rounded-[inherit]" aria-hidden />
+            <span className="glass-overlay rounded-[inherit]" aria-hidden />
+            <span className="glass-specular rounded-[inherit]" aria-hidden />
+            <span key={badgeIndex} className="glass-content relative z-[4] block animate-fade-in-up">
               {badgeMessages.current[badgeIndex]}
             </span>
           </Badge>

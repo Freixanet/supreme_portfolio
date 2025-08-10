@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { useThemeToggle } from "@/hooks/use-dark-mode";
 import type React from "react";
 
@@ -87,24 +86,6 @@ export default function Navigation() {
     setIsOpen(false);
   };
 
-  const handleGlassMove = (
-    e: React.MouseEvent<HTMLElement, MouseEvent>
-  ) => {
-    const el = e.currentTarget as HTMLElement;
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    el.style.setProperty("--x", `${x}px`);
-    el.style.setProperty("--y", `${y}px`);
-  };
-  const handleGlassLeave = (
-    e: React.MouseEvent<HTMLElement, MouseEvent>
-  ) => {
-    const el = e.currentTarget as HTMLElement;
-    el.style.setProperty("--x", `50%`);
-    el.style.setProperty("--y", `50%`);
-  };
-
   return (
     <nav className="nav" role="navigation" aria-label="Primary Navigation">
       <div className="nav__glass" aria-hidden />
@@ -125,28 +106,126 @@ export default function Navigation() {
           <div className="flex justify-between items-center h-full">
             {/* Brand (left cluster) */}
             <div className="text-xl tracking-wider flex items-center">
-              <span className="text-sky-blue">&gt;</span>
               <a
                 href="#hero"
-                className="inline-flex items-center ml-2"
+                className="inline-flex items-center"
                 aria-label="Go to home"
               >
-                <span className="font-mono font-black italic text-foreground leading-none text-crisp">
-                  FREIXANET
+                <span
+                  className="logo-brand font-mono font-black italic text-foreground leading-none text-crisp relative text-xl sm:text-2xl md:text-3xl"
+                  aria-label="FREIXANET"
+                >
+                  <style>{`
+                    .logo-brand > span { position: relative; display:inline-block }
+                    .logo-brand > .letter::after{
+                      content: attr(data-char);
+                      position:absolute; inset:0; color:transparent; pointer-events:none;
+                    }
+                    .logo-brand > .i::after{
+                      filter: url(#brand-inner-right);
+                      -webkit-mask-image: linear-gradient(90deg, transparent 49%, #000 49.1%);
+                              mask-image: linear-gradient(90deg, transparent 49%, #000 49.1%);
+                    }
+                    .logo-brand > .x::after{
+                      filter: url(#brand-inner-left);
+                      clip-path: polygon(0% 0%, 38% 0%, 56% 50%, 38% 100%, 0% 100%);
+                      -webkit-clip-path: polygon(0% 0%, 38% 0%, 56% 50%, 38% 100%, 0% 100%);
+                    }
+                    /* Use palette blue for filter color */
+                    .logo-brand #brand-inner-right feFlood,
+                    .logo-brand #brand-inner-left  feFlood { flood-color: var(--sky-blue); }
+                  `}</style>
+                  <span>F</span>
+                  <span>R</span>
+                  <span>E</span>
+                  <span className="letter i" data-char="I">
+                    I
+                  </span>
+                  <span className="letter x" data-char="X">
+                    X
+                  </span>
+                  <span>A</span>
+                  <span>N</span>
+                  <span>E</span>
+                  <span>T</span>
+
+                  {/* Inline SVG filter defs for inner shadows */}
+                  <svg
+                    width="0"
+                    height="0"
+                    aria-hidden="true"
+                    focusable="false"
+                    className="absolute"
+                  >
+                    <defs>
+                      <filter
+                        id="brand-inner-right"
+                        x="-50%"
+                        y="-50%"
+                        width="200%"
+                        height="200%"
+                      >
+                        <feGaussianBlur
+                          in="SourceAlpha"
+                          stdDeviation="1"
+                          result="b"
+                        />
+                        <feOffset in="b" dx="1.2" dy="0" result="o" />
+                        <feComposite
+                          in="o"
+                          in2="SourceAlpha"
+                          operator="arithmetic"
+                          k2="-1"
+                          k3="1"
+                          result="inner"
+                        />
+                        <feFlood flood-opacity="0.9" result="c" />
+                        <feComposite
+                          in="c"
+                          in2="inner"
+                          operator="in"
+                          result="shade"
+                        />
+                        <feMerge>
+                          <feMergeNode in="shade" />
+                        </feMerge>
+                      </filter>
+                      <filter
+                        id="brand-inner-left"
+                        x="-50%"
+                        y="-50%"
+                        width="200%"
+                        height="200%"
+                      >
+                        <feGaussianBlur
+                          in="SourceAlpha"
+                          stdDeviation="1"
+                          result="b"
+                        />
+                        <feOffset in="b" dx="-1.2" dy="0" result="o" />
+                        <feComposite
+                          in="o"
+                          in2="SourceAlpha"
+                          operator="arithmetic"
+                          k2="-1"
+                          k3="1"
+                          result="inner"
+                        />
+                        <feFlood flood-opacity="0.9" result="c" />
+                        <feComposite
+                          in="c"
+                          in2="inner"
+                          operator="in"
+                          result="shade"
+                        />
+                        <feMerge>
+                          <feMergeNode in="shade" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                  </svg>
                 </span>
               </a>
-              <Badge
-                variant="glass"
-                onMouseMove={handleGlassMove}
-                onMouseLeave={handleGlassLeave}
-                style={{ borderRadius: 9999 }}
-                className="relative overflow-hidden glass-button glass-preserve-color [--x:50%] [--y:50%] px-1.5 py-0 h-5 leading-none text-[10px] md:text-[11px] uppercase tracking-wide ml-3 md:ml-4 mt-0.5 inline-flex items-center !rounded-full cursor-default select-none hover:shadow-none motion-safe:hover:scale-100"
-              >
-                <span className="glass-filter rounded-[inherit]" aria-hidden />
-                <span className="glass-overlay rounded-[inherit]" aria-hidden />
-                <span className="glass-specular rounded-[inherit]" aria-hidden />
-                <span className="glass-content">Portf.</span>
-              </Badge>
             </div>
 
             {/* Right cluster (desktop): menu items + theme toggle */}

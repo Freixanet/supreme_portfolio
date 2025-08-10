@@ -100,6 +100,7 @@ export default function Projects() {
 									className={`group ${project.shadowClass} card-surface elevation-1 rounded-lg transition-all duration-300 overflow-hidden h-full flex flex-col`}
 									data-testid={`project-card-${index}`}
 								>
+									{/* Image stays clean, outside of glass effect */}
 									<div className="relative shrink-0">
 										<AspectRatio ratio={16 / 9}>
 											<img
@@ -112,6 +113,8 @@ export default function Projects() {
 										</AspectRatio>
 										<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-minimal-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 									</div>
+
+									{/* Clean content (no glass effect) */}
 									<CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
 										<div className="flex items-start justify-between gap-4">
 											<h3
