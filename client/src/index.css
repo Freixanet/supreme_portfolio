@@ -803,3 +803,11 @@ header.glass::after {
 @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   .nav__glass { background: rgba(12, 12, 12, 0.24); }
 }
+
+/* Light-mode adjustments: replace “white” text/borders with ideal near-black for better readability */
+html:not(.dark) .text-minimal-white { color: #111827; /* gray-900 */ }
+html:not(.dark) .border-minimal-white { border-color: rgba(17, 24, 39, 0.85); }
+html:not(.dark) .fill-minimal-white { fill: #111827; }
+html:not(.dark) .stroke-minimal-white { stroke: #111827; }
+
+/* Ensure default foreground is already ideal near-black in light mode (set via tokens) */
