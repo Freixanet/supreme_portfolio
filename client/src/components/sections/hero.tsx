@@ -144,16 +144,48 @@ export default function Hero() {
     shoot();
   };
 
+  // Mount flag for smooth, transition-based cascade (no animation property conflicts)
+  const [titleReady, setTitleReady] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setTitleReady(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
     <section
       id="hero"
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
       <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-12 sm:pt-20 md:pt-28 pb-20 sm:pb-28 md:pb-36">
-        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-5 sm:px-0 motion-safe:animate-fade-in-up">
-          <span className="block text-subtle-gradient">DIGITAL</span>
-          <span className="block reality-animated">REALITY</span>
-          <span className="block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient tracking-[-0.01em] sm:tracking-normal">
+        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-5 sm:px-0">
+          <span
+            className={`block text-subtle-gradient transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
+              titleReady
+                ? "opacity-100 translate-y-0 [filter:blur(0px)]"
+                : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
+            }`}
+            style={{ transitionDelay: "0s" }}
+          >
+            DIGITAL
+          </span>
+          <span
+            className={`block reality-animated transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
+              titleReady
+                ? "opacity-100 translate-y-0 [filter:blur(0px)]"
+                : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
+            }`}
+            style={{ transitionDelay: "0.35s" }}
+          >
+            REALITY
+          </span>
+          <span
+            className={`block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient tracking-[-0.01em] sm:tracking-normal transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
+              titleReady
+                ? "opacity-100 translate-y-0 [filter:blur(0px)]"
+                : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
+            }`}
+            style={{ transitionDelay: "0.7s" }}
+          >
             ARCHITECT
           </span>
         </h1>
@@ -286,7 +318,7 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <div className="absolute left-1/2 bottom-4 sm:bottom-6">
         <div className="-translate-x-1/2 transform">
-          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-sky-blue motion-safe:animate-bounce-inertia" />
+          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-sky-blue/70 animate-bounce" />
         </div>
       </div>
     </section>
