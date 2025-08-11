@@ -21,9 +21,7 @@ export default function Hero() {
   const INITIAL_PULSE_DELAY_MS = 1800;
 
   // Simplified: only update CSS vars for pointer glow
-  const handleButtonMove = (
-    e: React.MouseEvent<HTMLElement, MouseEvent>
-  ) => {
+  const handleButtonMove = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const el = e.currentTarget as HTMLElement;
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -157,7 +155,7 @@ export default function Hero() {
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
       <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-6 sm:pt-12 md:pt-20 pb-20 sm:pb-28 md:pb-36">
-        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-5 sm:px-0 cursor-default select-none">
+        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-6 sm:px-0 cursor-default select-none">
           <span
             className={`block text-subtle-gradient transform [transition-property:opacity,transform,filter] duration-[1600ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
               titleReady
@@ -179,7 +177,7 @@ export default function Hero() {
             REALITY
           </span>
           <span
-            className={`block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient tracking-[-0.01em] sm:tracking-normal transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            className={`block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient tracking-[-0.01em] sm:tracking-normal px-2.5 sm:px-0 transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
               titleReady
                 ? "opacity-100 translate-y-0 [filter:blur(0px)]"
                 : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
@@ -317,7 +315,10 @@ export default function Hero() {
             <span className="glass-filter rounded-[inherit]" aria-hidden />
             <span className="glass-overlay rounded-[inherit]" aria-hidden />
             <span className="glass-specular rounded-[inherit]" aria-hidden />
-            <span key={badgeIndex} className="glass-content relative z-[4] block animate-fade-in-up">
+            <span
+              key={badgeIndex}
+              className="glass-content relative z-[4] block animate-fade-in-up"
+            >
               {badgeMessages.current[badgeIndex]}
             </span>
           </Badge>
