@@ -152,10 +152,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen relative flex items-center justify-center overflow-hidden"
+      className="relative isolate min-h-0 md:min-h-screen flex items-start sm:items-center justify-center overflow-x-hidden overflow-y-visible"
     >
-      <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-6 sm:pt-12 md:pt-20 pb-20 sm:pb-28 md:pb-36">
-        <h1 className="font-mono font-black text-7xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 px-6 sm:px-0 cursor-default select-none">
+      <div className="relative z-10 text-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-12 md:pt-20 pb-36 sm:pb-28 md:pb-36">
+        <h1 className="font-mono font-black text-6xl sm:text-8xl md:text-8xl lg:text-9xl xl:text-[9.5rem] leading-[0.95] pb-6 pl-[max(2rem,env(safe-area-inset-left))] pr-[max(2rem,env(safe-area-inset-right))] sm:px-0 cursor-default select-none">
           <span
             className={`block text-subtle-gradient transform [transition-property:opacity,transform,filter] duration-[1600ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
               titleReady
@@ -177,7 +177,7 @@ export default function Hero() {
             REALITY
           </span>
           <span
-            className={`block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient tracking-[-0.01em] sm:tracking-normal px-2.5 sm:px-0 transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            className={`block w-fit mx-auto sm:w-auto sm:mx-0 text-subtle-gradient tracking-[-0.01em] sm:tracking-normal transform [transition-property:opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] ${
               titleReady
                 ? "opacity-100 translate-y-0 [filter:blur(0px)]"
                 : "opacity-0 translate-y-[8px] [filter:blur(6px)]"
@@ -188,7 +188,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-2xl lg:text-[22px] font-light max-w-4xl mx-auto pb-10 leading-relaxed opacity-90">
+        <p className="text-base sm:text-lg md:text-2xl lg:text-[22px] font-light max-w-4xl mx-auto pb-10 leading-relaxed opacity-90 break-words pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] sm:px-0">
           Full-stack developer who <strong>moldea realidades digitales</strong>{" "}
           through authentic brutalist design and cosmic skill mastery.
         </p>
@@ -326,7 +326,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute left-1/2 bottom-4 sm:bottom-6">
+      <div className="hidden sm:block absolute left-1/2 bottom-4 sm:bottom-6">
         <div className="-translate-x-1/2 transform">
           <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-sky-blue/70 animate-bounce" />
         </div>
