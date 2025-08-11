@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useThemeToggle } from "@/hooks/use-dark-mode";
 import type React from "react";
+import freixanetMark from "@/assets/freixanet-icon-tight.svg";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -102,134 +103,26 @@ export default function Navigation() {
           />
         </div>
 
-        <div className="nav-inner w-full px-4 sm:px-6 lg:px-8 h-[70px]">
-          <div className="flex justify-between items-center h-full">
-            {/* Brand (left cluster) */}
-            <div className="text-xl tracking-wider flex items-center">
-              <a
-                href="#hero"
-                className="inline-flex items-center"
-                aria-label="Go to home"
-              >
-                <span
-                  className="logo-brand font-mono font-black italic text-foreground leading-none text-crisp relative text-xl sm:text-2xl md:text-3xl"
-                  aria-label="FREIXANET"
-                >
-                  <style>{`
-                    .logo-brand > span { position: relative; display:inline-block }
-                    .logo-brand > .letter::after{
-                      content: attr(data-char);
-                      position:absolute; inset:0; color:transparent; pointer-events:none;
-                    }
-                    .logo-brand > .i::after{
-                      filter: url(#brand-inner-right);
-                      -webkit-mask-image: linear-gradient(90deg, transparent 49%, #000 49.1%);
-                              mask-image: linear-gradient(90deg, transparent 49%, #000 49.1%);
-                    }
-                    .logo-brand > .x::after{
-                      filter: url(#brand-inner-left);
-                      clip-path: polygon(0% 0%, 38% 0%, 56% 50%, 38% 100%, 0% 100%);
-                      -webkit-clip-path: polygon(0% 0%, 38% 0%, 56% 50%, 38% 100%, 0% 100%);
-                    }
-                    /* Use palette blue for filter color */
-                    .logo-brand #brand-inner-right feFlood,
-                    .logo-brand #brand-inner-left  feFlood { flood-color: var(--sky-blue); }
-                  `}</style>
-                  <span>F</span>
-                  <span>R</span>
-                  <span>E</span>
-                  <span className="letter i" data-char="I">
-                    I
-                  </span>
-                  <span className="letter x" data-char="X">
-                    X
-                  </span>
-                  <span>A</span>
-                  <span>N</span>
-                  <span>E</span>
-                  <span>T</span>
+        <div className="nav-inner w-full h-[70px] px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Logo */}
+          <a
+            href="#hero"
+            className="inline-flex items-center gap-2 select-none font-mono font-bold text-xl md:text-2xl leading-none text-foreground h-full"
+            aria-label="Go to home"
+          >
+            <img
+              src={freixanetMark}
+              alt=""
+              aria-hidden="true"
+              className="relative -top-px h-[0.88em] w-auto block"
+            />
+            <span className="leading-none italic">FREIXANET</span>
+          </a>
 
-                  {/* Inline SVG filter defs for inner shadows */}
-                  <svg
-                    width="0"
-                    height="0"
-                    aria-hidden="true"
-                    focusable="false"
-                    className="absolute"
-                  >
-                    <defs>
-                      <filter
-                        id="brand-inner-right"
-                        x="-50%"
-                        y="-50%"
-                        width="200%"
-                        height="200%"
-                      >
-                        <feGaussianBlur
-                          in="SourceAlpha"
-                          stdDeviation="1"
-                          result="b"
-                        />
-                        <feOffset in="b" dx="1.2" dy="0" result="o" />
-                        <feComposite
-                          in="o"
-                          in2="SourceAlpha"
-                          operator="arithmetic"
-                          k2="-1"
-                          k3="1"
-                          result="inner"
-                        />
-                        <feFlood flood-opacity="0.9" result="c" />
-                        <feComposite
-                          in="c"
-                          in2="inner"
-                          operator="in"
-                          result="shade"
-                        />
-                        <feMerge>
-                          <feMergeNode in="shade" />
-                        </feMerge>
-                      </filter>
-                      <filter
-                        id="brand-inner-left"
-                        x="-50%"
-                        y="-50%"
-                        width="200%"
-                        height="200%"
-                      >
-                        <feGaussianBlur
-                          in="SourceAlpha"
-                          stdDeviation="1"
-                          result="b"
-                        />
-                        <feOffset in="b" dx="-1.2" dy="0" result="o" />
-                        <feComposite
-                          in="o"
-                          in2="SourceAlpha"
-                          operator="arithmetic"
-                          k2="-1"
-                          k3="1"
-                          result="inner"
-                        />
-                        <feFlood flood-opacity="0.9" result="c" />
-                        <feComposite
-                          in="c"
-                          in2="inner"
-                          operator="in"
-                          result="shade"
-                        />
-                        <feMerge>
-                          <feMergeNode in="shade" />
-                        </feMerge>
-                      </filter>
-                    </defs>
-                  </svg>
-                </span>
-              </a>
-            </div>
-
-            {/* Right cluster (desktop): menu items + theme toggle */}
-            <div className="hidden md:flex items-center gap-6 ml-auto">
+          {/* Menu cluster: desktop y móvil */}
+          <div className="h-[70px] flex items-center gap-6">
+            {/* Desktop menu */}
+            <div className="hidden md:flex items-center gap-6">
               <div className="flex space-x-8 font-mono font-bold">
                 {navItems.map((item) => (
                   <button
@@ -264,7 +157,7 @@ export default function Navigation() {
               </button>
             </div>
 
-            {/* Right controls (mobile only): theme + hamburger */}
+            {/* Mobile controls */}
             <div className="flex items-center gap-2 md:hidden">
               <button
                 type="button"
