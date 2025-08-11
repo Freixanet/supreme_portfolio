@@ -107,7 +107,7 @@ export default function Navigation() {
           {/* Logo */}
           <a
             href="#hero"
-            className="inline-flex items-center gap-2 select-none font-mono font-bold text-xl md:text-2xl leading-none text-foreground h-full"
+            className="inline-flex items-center gap-2 select-none font-mono font-bold text-2xl md:text-2xl leading-none text-foreground h-full"
             aria-label="Go to home"
           >
             <img

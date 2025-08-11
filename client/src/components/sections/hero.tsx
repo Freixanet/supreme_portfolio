@@ -245,7 +245,7 @@ export default function Hero() {
         <div className="flex flex-row flex-wrap gap-5 sm:gap-7 justify-center items-center pb-4">
           <Button
             variant="orange"
-            className="group relative isolate overflow-hidden font-mono font-black px-6 py-3.5 text-base sm:px-8 sm:py-4.5 sm:text-lg xl:text-xl translate-y-px shadow-xl sm:translate-y-0 sm:shadow-lg transition-all duration-300 will-change-transform sm:hover:translate-y-px sm:hover:shadow-xl active:translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue/70 [--x:50%] [--y:50%] scale-[1.008] sm:scale-100 !rounded-xl"
+            className="group relative isolate overflow-hidden font-mono font-black px-6 py-4 text-base sm:px-8 sm:py-5 sm:text-lg xl:text-xl translate-y-px shadow-xl sm:translate-y-0 sm:shadow-lg transition-all duration-300 will-change-transform sm:hover:translate-y-px sm:hover:shadow-xl active:translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue/70 [--x:50%] [--y:50%] scale-[1.008] sm:scale-100 !rounded-xl"
             onClick={(e) => {
               document
                 .querySelector("#contact")
@@ -280,7 +280,7 @@ export default function Hero() {
           {/* Secondary CTA */}
           <Button
             variant="outline"
-            className="relative overflow-hidden border-2 border-minimal-white text-minimal-white font-mono font-bold px-6 py-3.5 text-base sm:px-8 sm:py-4.5 sm:text-lg transition-all duration-300 !rounded-xl hover:bg-transparent hover:text-current shadow-[0_0_0_1px_rgba(14,165,233,0.22),0_6px_24px_rgba(14,165,233,0.1)]"
+            className="relative overflow-hidden border-2 border-minimal-white text-minimal-white font-mono font-bold px-6 py-4 text-base sm:px-8 sm:py-5 sm:text-lg transition-all duration-300 !rounded-xl hover:bg-transparent hover:text-current shadow-[0_0_0_1px_rgba(14,165,233,0.22),0_6px_24px_rgba(14,165,233,0.1)]"
             onClick={scrollToProjects}
             data-testid="button-view-projects"
           >
